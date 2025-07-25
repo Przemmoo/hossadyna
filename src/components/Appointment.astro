@@ -1,0 +1,381 @@
+---
+// Sekcja "Umów wizytę" z widgetem Znanego Lekarza
+---
+
+<section id="appointment" class="appointment section">
+  <div class="container">
+    <h2>Zarezerwuj termin wizyty</h2>
+    <p class="appointment-intro">
+      Poniżej znajdziesz mój kalendarz w portalu Znany Lekarz. Wybierz dogodny dla siebie termin 
+      i formę spotkania (online lub w gabinecie). Możesz również skontaktować się ze mną bezpośrednio.
+    </p>
+    
+    <div class="appointment-container">
+      <!-- Lewa kolumna - Informacje o wizytach -->
+      <div class="appointment-info">
+        <h3>Informacje o wizytach</h3>
+        <div class="info-list">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h4>Czas trwania</h4>
+              <p>Sesja terapeutyczna trwa 45 minut</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h4>Formy terapii</h4>
+              <p>• Psychoterapia indywidualna<br>
+                • Terapia par<br>
+                • Konsultacje online</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 5.02944 7.02944 1 12 1C16.9706 1 21 5.02944 21 10Z" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h4>Lokalizacja</h4>
+              <p>ul. Krakowska 6a, Wieliczka<br>lub online</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="info-content">
+              <h4>Dostępność</h4>
+              <p>Poniedziałek: 12:00-17:00<br>
+                Wtorek: 8:00-13:00<br>
+                Środa: 8:00-12:00<br>
+                Czwartek: 14:00-18:00<br>
+                Piątek: 14:00-17:00</p>
+            </div>
+          </div>
+
+          
+        </div>
+
+        
+      </div>
+
+      <!-- Prawa kolumna - Widget Znany Lekarz -->
+      <div class="widget-container">
+        <h3>Zarezerwuj wizytę</h3>
+        <div class="znany-lekarz-widget">
+          <!-- Widget Znanego Lekarza -->
+          <a 
+            id="zl-url" 
+            class="zl-url" 
+            href="https://www.znanylekarz.pl/magdalena-hossadyna/psycholog-psychoterapeuta/wieliczka" 
+            rel="nofollow" 
+            data-zlw-doctor="magdalena-hossadyna" 
+            data-zlw-type="big_with_calendar" 
+            data-zlw-opinion="false" 
+            data-zlw-hide-branding="true" 
+            data-zlw-saas-only="false" 
+            data-zlw-a11y-title="Widget umówienia wizyty lekarskiej"
+          >
+            Magdalena Hossadyna - ZnanyLekarz.pl
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sekcja kontaktu bezpośredniego pod kolumnami -->
+    <div class="alternative-contact">
+      <h4>Kontakt bezpośredni</h4>
+      <p>Wolisz skontaktować się bezpośrednio?</p>
+      <div class="contact-methods">
+        <a href="tel:+48607234234" class="contact-method">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+          +48 607 234 234
+        </a>
+        <a href="mailto:kontakt@magdalenahossadyna.pl" class="contact-method">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          kontakt@magdalenahossadyna.pl
+        </a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  h2 {
+    text-align: center;
+  }
+  
+  .appointment {
+    background-color: var(--color-off-white);
+  }
+
+  .appointment-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .appointment-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .appointment-info {
+    background-color: var(--color-white);
+    padding-top: 1.5rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+  }
+
+  .appointment-info h3 {
+    margin-bottom: 2rem;
+    color: var(--color-dusty-pink);
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background-color: var(--color-off-white);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .info-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-icon {background-color: var(--color-dusty-pink);
+    color: var(--color-white);
+    padding: 0.875rem;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  .info-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-dark-graphite);
+    font-size: 1.1rem;
+  }
+
+  .info-content p {
+    color: var(--color-dark-graphite);
+    font-size: 0.95rem;
+    opacity: 0.8;
+  }
+
+  .widget-container {
+    background-color: var(--color-white);
+    padding-top: 1.5rem;
+    padding-bottom: 1.1rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto;
+  }
+
+  .widget-container h3 {
+    margin-bottom: 2rem;
+    color: var(--color-dusty-pink);
+    font-size: 1.6rem;
+  }
+
+  .znany-lekarz-widget {
+    margin-top: 0rem;
+  }
+
+  .zl-url {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--color-dusty-pink);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .zl-url:hover {
+    background-color: var(--color-sage-green);
+  }
+
+  .alternative-contact {
+    background-color: var(--color-white);
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .alternative-contact h4 {
+    color: var(--color-dusty-pink);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .alternative-contact p {
+    margin-bottom: 2rem;
+    color: var(--color-dark-graphite);
+    opacity: 0.8;
+    font-size: 1.1rem;
+  }
+
+  .contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-dusty-pink);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--color-off-white);
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .contact-method:hover {
+    color: var(--color-white);
+    background-color: var(--color-dusty-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 1024px) {
+    .appointment-container {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .appointment-info,
+    .widget-container,
+    .alternative-contact {
+      padding: 2rem;
+    }
+
+    .contact-methods {
+      gap: 2rem;
+    }
+    
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .info-icon {
+      margin-bottom: -1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .appointment-container {
+      gap: 2rem;
+    }
+
+    .appointment-info,
+    .widget-container,
+    .alternative-contact {
+      padding: 1.5rem;
+    }
+
+    .info-list {
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .info-item {
+      padding: 1rem;
+    }
+
+    .contact-methods {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-method {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+
+    .znany-lekarz-widget {
+      min-height: 400px;
+    }
+  }
+</style>
+
+<script>
+  // Load Znany Lekarz widget script
+  document.addEventListener('DOMContentLoaded', () => {
+    const script = document.createElement('script');
+    script.innerHTML = `!function($_x,_s,id){var js,fjs=$_x.getElementsByTagName(_s)[0];if(!$_x.getElementById(id)){js = $_x.createElement(_s);js.id = id;js.src = "//platform.docplanner.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","zl-widget-s");`;
+    document.head.appendChild(script);
+  });
+</script>

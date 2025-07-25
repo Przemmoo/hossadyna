@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// Pobierz wszystkie artykuły
+const allArticles = await getCollection('articles');
+// Sortuj artykuły według daty (najnowsze pierwsze)
+const sortedArticles = allArticles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Layout title="Artykuły - Magdalena Hossadyna">
+  <Header />
+  <main>
+    <section class="articles-page section">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs">
+          <a href="/">Strona główna</a>
+          <span class="breadcrumb-separator">›</span>
+          <span class="breadcrumb-current">Artykuły</span>
+        </nav>
+
+        <h2>Baza wiedzy - przeczytaj moje artykuły</h2>
+        <p class="articles-intro">
+          W tej sekcji znajdziesz artykuły na tematy związane ze zdrowiem psychicznym, 
+          które mogą pomóc Ci lepiej zrozumieć różne aspekty funkcjonowania emocjonalnego i psychicznego.
+        </p>
+        
+        <div class="articles-grid">
+          {sortedArticles.map((article) => (
+            <article class="article-card">
+              <div class="article-image">
+                <img src={article.data.image} alt={article.data.title} />
+              </div>
+              <div class="article-content">
+                <div class="article-category">{article.data.category.replace('-', ' ')}</div>
+                <h3 class="article-title">{article.data.title}</h3>
+                <p class="article-excerpt">{article.data.description}</p>
+                <div class="article-meta">
+                  <span class="article-date">
+                    {article.data.date.toLocaleDateString('pl-PL', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
+                  </span>
+                </div>
+                <a href={`/artykuly/${article.slug}`} class="article-btn">Czytaj więcej</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Contact />
+  <Footer />
+</Layout>
+
+<style>
+  h2 {
+    text-align: center;
+  }
+  
+  .articles-page {
+    background-color: var(--color-white);
+    padding-top: 160px;
+  }
+
+  .breadcrumbs {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs a {
+    color: var(--color-dusty-pink);
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: var(--color-sage-green);
+  }
+
+  .breadcrumb-current {
+    color: var(--color-dark-graphite);
+  }
+
+  .articles-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .article-card {
+    background-color: var(--color-off-white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .article-image {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .article-content {
+    padding: 1.5rem;
+  }
+
+  .article-category {
+    background-color: var(--color-dusty-pink);
+    color: var(--color-white);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+  }
+
+  .article-title {
+    margin-bottom: 1rem;
+    color: var(--color-dark-graphite);
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+
+  .article-excerpt {
+    color: var(--color-dark-graphite);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .article-meta {
+    font-size: 0.9rem;
+    color: var(--color-sage-green);
+    margin-bottom: 1.5rem;
+  }
+
+  .article-btn {
+    background-color: transparent;
+    color: var(--color-dusty-pink);
+    border: 2px solid var(--color-dusty-pink);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .article-btn:hover {
+    background-color: var(--color-dusty-pink);
+    color: var(--color-white);
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .article-content {
+      padding: 1rem;
+    }
+  }
+</style>

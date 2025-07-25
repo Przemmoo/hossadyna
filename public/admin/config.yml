@@ -1,0 +1,133 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: 'public/images'
+public_folder: '/images'
+
+collections:
+  - name: 'articles'
+    label: 'Artykuły'
+    folder: 'src/content/articles'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { label: 'Tytuł', name: 'title', widget: 'string' }
+      - { label: 'Data publikacji', name: 'date', widget: 'datetime' }
+      - { label: 'Opis', name: 'description', widget: 'text' }
+      - { label: 'Obraz', name: 'image', widget: 'image' }
+      - { label: 'Zawartość', name: 'body', widget: 'markdown' }
+      - {
+          label: 'Kategoria',
+          name: 'category',
+          widget: 'select',
+          options:
+            ['terapia', 'zdrowie-psychiczne', 'rozwoj-osobisty', 'relacje'],
+        }
+      - { label: 'Tagi', name: 'tags', widget: 'list', default: [] }
+
+  - name: 'reviews'
+    label: 'Opinie'
+    folder: 'src/content/reviews'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Imię', name: 'name', widget: 'string' }
+      - {
+          label: 'Ocena',
+          name: 'rating',
+          widget: 'number',
+          min: 1,
+          max: 5,
+          step: 1,
+        }
+      - { label: 'Data', name: 'date', widget: 'datetime' }
+      - { label: 'Treść opinii', name: 'content', widget: 'text' }
+      - {
+          label: 'Wyróżniona',
+          name: 'featured',
+          widget: 'boolean',
+          default: false,
+        }
+
+  - name: 'services'
+    label: 'Usługi'
+    folder: 'src/content/services'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Nazwa usługi', name: 'title', widget: 'string' }
+      - { label: 'Opis', name: 'description', widget: 'text' }
+      - { label: 'Cena', name: 'price', widget: 'string' }
+      - { label: 'Czas trwania', name: 'duration', widget: 'string' }
+      - {
+          label: 'Typ',
+          name: 'type',
+          widget: 'select',
+          options: ['gabinet', 'online', 'oba'],
+        }
+      - { label: 'Ikona', name: 'icon', widget: 'string' }
+      - { label: 'Kolejność', name: 'order', widget: 'number' }
+
+  - name: 'settings'
+    label: 'Ustawienia'
+    files:
+      - label: 'Informacje kontaktowe'
+        name: 'contact'
+        file: 'src/content/settings/contact.md'
+        fields:
+          - { label: 'Telefon', name: 'phone', widget: 'string' }
+          - { label: 'Email', name: 'email', widget: 'string' }
+          - { label: 'Adres', name: 'address', widget: 'text' }
+          - { label: 'Godziny pracy', name: 'hours', widget: 'text' }
+          - {
+              label: 'Facebook',
+              name: 'facebook',
+              widget: 'string',
+              required: false,
+            }
+          - {
+              label: 'Instagram',
+              name: 'instagram',
+              widget: 'string',
+              required: false,
+            }
+          - {
+              label: 'LinkedIn',
+              name: 'linkedin',
+              widget: 'string',
+              required: false,
+            }
+
+      - label: 'SEO'
+        name: 'seo'
+        file: 'src/content/settings/seo.md'
+        fields:
+          - { label: 'Tytuł strony', name: 'title', widget: 'string' }
+          - { label: 'Opis strony', name: 'description', widget: 'text' }
+          - { label: 'Słowa kluczowe', name: 'keywords', widget: 'list' }
+          - {
+              label: 'Google Analytics ID',
+              name: 'ga_id',
+              widget: 'string',
+              required: false,
+            }
+          - {
+              label: 'Google Tag Manager ID',
+              name: 'gtm_id',
+              widget: 'string',
+              required: false,
+            }
+
+      - label: 'Widget ZnanyLekarz'
+        name: 'znanylekarz'
+        file: 'src/content/settings/znanylekarz.md'
+        fields:
+          - { label: 'Kod widgetu', name: 'widget_code', widget: 'text' }
+          - { label: 'Link do profilu', name: 'profile_url', widget: 'string' }
+          - {
+              label: 'Aktywny',
+              name: 'active',
+              widget: 'boolean',
+              default: true,
+            }

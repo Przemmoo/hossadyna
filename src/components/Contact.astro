@@ -1,0 +1,322 @@
+---
+// Sekcja "Kontakt"
+---
+
+<section id="contact" class="contact section">
+  <div class="container">
+    <h2>Kontakt</h2>
+    <p class="contact-intro">
+      Masz pytania lub chcesz umówić się na wizytę? Skontaktuj się ze mną w dogodny dla Ciebie sposób. 
+      Postaram się odpowiedzieć jak najszybciej.
+    </p>
+    
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Dane kontaktowe</h3>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h4>Telefon</h4>
+            <a href="tel:+48607234234">+48 607 234 234</a>
+            <p>Pon-Pt: 8:00-19:00</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+              <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h4>E-mail</h4>
+            <a href="mailto:kontakt@magdalenahossadyna.pl">kontakt@magdalenahossadyna.pl</a>
+            <p>Odpowiem w ciągu 24h</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 5.02944 7.02944 1 12 1C16.9706 1 21 5.02944 21 10Z" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <h4>Adres gabinetu</h4>
+            <address>
+              ul. Krakowska 6a<br>
+              32-020 Wieliczka
+            </address>
+            <p>Parking dostępny</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-section">
+        <h3>Lokalizacja gabinetu</h3>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d302.62726785542617!2d20.04175605370749!3d49.99299683748906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471643bebf6c95e5%3A0x8b7d8d6cf5727650!2sCentrum%20Terapii%20%22Empatyczni%22!5e0!3m2!1spl!2spl!4v1753372081667!5m2!1spl!2spl"
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    text-align: center;
+  }
+  
+  .contact {
+    background-color: var(--color-off-white);
+  }
+
+  .contact-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-container {
+    background-color: var(--color-white);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info {
+    padding-top: 3rem;
+    padding-left: 2.5rem;
+    padding-right: 1.25rem;
+    padding-bottom: 3rem;
+  }
+
+  .contact-form-container {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-info h3 {
+    color: var(--color-dusty-pink);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+    padding: 1.25rem;
+    border-radius: 10px;
+    background-color: var(--color-off-white);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-icon {
+    background-color: var(--color-dusty-pink);
+    color: var(--color-white);
+    padding: 0.875rem;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      margin-bottom: -1.5rem;
+  }
+
+  .contact-details h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-dark-graphite);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .contact-details a {
+    color: var(--color-dusty-pink);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .contact-details a:hover {
+    text-decoration: underline;
+  }
+
+  .contact-details p,
+  .contact-details address {
+    font-style: normal;
+    color: var(--color-dark-graphite);
+    opacity: 0.8;
+    margin: 0.5rem 0 0 0;
+  }
+
+  /* Map Section */
+  .map-section {
+    padding-top: 3rem;
+    padding-left: 1.25rem;
+    padding-right: 2.5rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map-section h3 {
+    color: var(--color-dusty-pink);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  .map-embed {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .map-embed iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+  }
+
+  /* Mobile and Tablet Styles */
+  @media (max-width: 1024px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-item {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .contact-icon, 
+    .contact-details{
+      align-self: center;
+    }
+
+    .contact-info {
+      border-right: none;
+      border-bottom: 1px solid var(--color-off-white);
+      padding: 2.5rem 2rem;
+      align-self: center;
+    }
+    
+    .map-section {
+      padding: 2.5rem 2rem;
+    }
+    
+    .map-embed iframe {
+      min-height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-intro {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-info,
+    .map-section {
+      padding: 2rem 1.5rem;
+    }
+
+    .contact-item {
+      flex-direction: column;
+      text-align: center;
+    justify-content: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      align-self: center;
+    }
+
+    .contact-icon {
+      align-self: center;
+    }
+
+    .contact-info h3,
+    .map-section h3 {
+      font-size: 1.4rem;
+    }
+    
+    .map-embed iframe {
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-info,
+    .map-section {
+      padding: 1.5rem 1rem;
+    }
+    
+    .contact-item {
+      padding: 1rem;
+      align-self: center;
+    }
+    
+    .contact-info h3,
+    .map-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .map-embed iframe {
+      min-height: 250px;
+    }
+  }
+</style>
+
+<script>
+  // Handle privacy policy link from other components if needed
+  document.addEventListener('DOMContentLoaded', () => {
+    // Handle privacy policy link
+    const privacyTriggers = document.querySelectorAll('.privacy-policy-trigger');
+    privacyTriggers.forEach(trigger => {
+      trigger?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const privacyModal = document.getElementById('privacy-policy-modal');
+        if (privacyModal) {
+          privacyModal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+  });
+</script>

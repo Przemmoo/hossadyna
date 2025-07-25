@@ -1,22 +1,185 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="keywords" content="psychoterapeuta Wieliczka, psychoterapia Wieliczka, terapia poznawczo-behawioralna, Magdalena Hossadyna, psychoterapia online" />
+    <meta name="author" content="Magdalena Hossadyna" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400&display=swap" rel="stylesheet" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Physician",
+        "name": "Magdalena Hossadyna",
+        "image": "/images/magdalena-hossadyna.jpg",
+        "telephone": "+48 123 456 789",
+        "email": "kontakt@magdalenahossadyna.pl",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ul. Przykładowa 1",
+          "addressLocality": "Wieliczka",
+          "postalCode": "32-020",
+          "addressCountry": "PL"
+        },
+        "areaServed": "Wieliczka",
+        "medicalSpecialty": "Psychoterapia",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Usługi psychoterapeutyczne",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Psychoterapia poznawczo-behawioralna"
+              }
+            },
+            {
+              "@type": "Offer", 
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Terapia online"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  :root {
+    /* Kolory zgodnie z dokumentem */
+    --color-dusty-pink: #F59399;
+    --color-dark-graphite: #4F4F4F;
+    --color-off-white: #F5F5F5;
+    --color-sage-green: #1B5D51;
+    --color-white: #ffffff;
+    
+    /* Typografia */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-padding-top: 120px; /* Account for fixed header height */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-dark-graphite);
+    background-color: var(--color-off-white);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    
+    margin: 1.3rem 0 1.3rem 0;
+    color: var(--color-sage-green);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: var(--color-dusty-pink);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+
+  .container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-dusty-pink);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: var(--color-sage-green);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .section {
+      padding: 2rem 0;
+    }
+  }
 </style>

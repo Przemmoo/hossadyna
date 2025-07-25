@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hossadyna.pl/sitemap.xml
+
+# Blokuj dostęp do panelu administracyjnego
+Disallow: /admin/
+
+# Blokuj dostęp do plików konfiguracyjnych
+Disallow: /_astro/
+Disallow: /api/

@@ -1,11 +1,31 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Reviews from '../components/Reviews.astro';
+import Appointment from '../components/Appointment.astro';
+import Articles from '../components/Articles.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout 
+  title="Psychoterapeuta Wieliczka - Magdalena Hossadyna"
+  description="Szukasz wsparcia? Magdalena Hossadyna - certyfikowany psychoterapeuta w Wieliczce. Oferuję terapię poznawczo-behawioralną w gabinecie i online. Umów wizytę."
+>
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Services />
+    <Reviews />
+    <Appointment />
+    <Articles />
+    <Contact />
+  </main>
+  <Footer />
+  <CookieBanner />
 </Layout>

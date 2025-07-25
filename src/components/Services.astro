@@ -1,0 +1,279 @@
+---
+// Sekcja "Oferta" - usługi psychoterapeutyczne
+---
+
+<section id="services" class="services section">
+  <div class="container">
+    <h2>Jak mogę Ci pomóc?</h2>
+    <p class="services-intro">
+      Oferuję profesjonalne wsparcie psychoterapeutyczne dostosowane do Twoich indywidualnych potrzeb. 
+      Możesz wybrać między spotkaniami w gabinecie w Wieliczce lub wygodnymi sesjami online.
+    </p>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Terapia w gabinecie</h3>
+        <ul class="service-features">
+          <li>Bezpieczna przestrzeń w centrum Wieliczki</li>
+          <li>Komfortowe warunki do prowadzenia terapii</li>
+          <li>Bezpośredni kontakt z terapeutą</li>
+          <li>Pełna dyskrecja i poufność</li>
+        </ul>
+        <div class="service-specializations">
+          <h4>Specjalizacje:</h4>
+          <div class="specialization-tags">
+            <span class="tag">Zaburzenia lękowe</span>
+            <span class="tag">Depresja</span>
+            <span class="tag">Stres i wypalenie</span>
+            <span class="tag">Problemy relacyjne</span>
+            <span class="tag">Niska samoocena</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 16L16 12L10 8V16Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>Terapia online</h3>
+        <ul class="service-features">
+          <li>Wygoda prowadzenia terapii z domu</li>
+          <li>Elastyczne godziny spotkań</li>
+          <li>Bezpieczna platforma do videorozmów</li>
+          <li>Idealne dla osób o ograniczonej mobilności</li>
+        </ul>
+        <div class="service-specializations">
+          <h4>Szczególnie pomocne przy:</h4>
+          <div class="specialization-tags">
+            <span class="tag">Fobii społecznej</span>
+            <span class="tag">Agorafobii</span>
+            <span class="tag">Zaburzeniach obsesyjno-kompulsywnych</span>
+            <span class="tag">Wsparciu w chorobie</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="therapy-process">
+      <h3>Jak przebiega terapia poznawczo-behawioralna?</h3>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Pierwsza konsultacja</h4>
+            <p>Poznanie Twojej sytuacji, określenie celów terapeutycznych i planu działania.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Analiza problemów</h4>
+            <p>Identyfikacja negatywnych wzorców myślenia i zachowań wpływających na Twoje samopoczucie.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Nauka nowych strategii</h4>
+            <p>Rozwijanie skutecznych sposobów radzenia sobie z trudnościami i budowanie pozytywnych nawyków.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Utrwalanie zmian</h4>
+            <p>Praktyczne zastosowanie nowych umiejętności w życiu codziennym i zapobieganie nawrotom.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    text-align: center;
+  }
+  
+  .services {
+    background-color: var(--color-off-white);
+  }
+
+  .services-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-card {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .service-icon {
+    color: var(--color-dusty-pink);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card h3 {
+    margin-bottom: 1.5rem;
+    color: var(--color-dark-graphite);
+  }
+
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .service-features li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .service-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-sage-green);
+    font-weight: bold;
+  }
+
+  .service-specializations h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--color-dusty-pink);
+  }
+
+  .specialization-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .tag {
+    background-color: var(--color-sage-green);
+    color: var(--color-white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .therapy-process {
+    background-color: var(--color-white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .therapy-process h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-dusty-pink);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .step-number {
+    background-color: var(--color-dusty-pink);
+    color: var(--color-white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-dark-graphite);
+  }
+
+  .step-content p {
+    font-size: 0.95rem;
+    color: var(--color-dark-graphite);
+    opacity: 0.8;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      padding: 1.5rem;
+    }
+
+    .therapy-process {
+      padding: 2rem 1rem;
+    }
+
+    .process-steps {
+      grid-template-columns: 1fr;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .step {
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-number {
+      margin-bottom: -1.5rem;
+    }
+
+    .specialization-tags {
+    justify-content: center;
+    }
+
+    .service-features li {
+      justify-self: center;
+    }
+  }
+</style>

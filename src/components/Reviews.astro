@@ -1,0 +1,366 @@
+---
+// Sekcja "Opinie" - opinie pacjentów
+import { getCollection } from 'astro:content';
+
+// Pobierz wszystkie opinie
+const allReviews = await getCollection('reviews');
+
+// Sortuj opinie według kolejności
+const sortedReviews = allReviews.sort((a, b) => a.data.order - b.data.order);
+
+// Funkcja do generowania gwiazdek
+function generateStars(rating: number) {
+  return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+}
+---
+
+<section id="reviews" class="reviews section">
+  <div class="container">
+    <h2>Co mówią pacjenci</h2>
+    <p class="reviews-intro">
+      Opinie moich pacjentów są dla mnie najważniejszą oceną mojej pracy. 
+      Cieszę się, że mogę towarzyszyć im w procesie pozytywnych zmian.
+    </p>
+    
+    <div class="reviews-carousel">
+      <div class="reviews-grid" id="reviews-grid">
+        {sortedReviews.map(async (review, index) => {
+          const { Content } = await review.render();
+          return (
+            <div class={`review-card ${index < 2 ? 'active' : ''}`} data-index={index}>
+              <div class="stars">
+                {generateStars(review.data.rating)}
+              </div>
+              <blockquote class="review-text">
+                <Content />
+              </blockquote>
+              <div class="review-author">
+                <strong>{review.data.name}</strong>
+                <span class="author-info">{review.data.therapy}</span>
+              </div>
+              <div class="review-source">
+                <span>{review.data.source}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      
+      {sortedReviews.length > 2 && (
+        <div class="reviews-indicators">
+          {Array.from({length: Math.ceil(sortedReviews.length / 2)}).map((_, index) => (
+            <button class={`indicator ${index === 0 ? 'active' : ''}`} data-slide={index}></button>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div class="reviews-summary">
+      <h3>Wszystkie opinie pochodzą z portalu ZnanyLekarz.pl</h3>
+      <p>Autentyczne opinie zweryfikowanych pacjentów</p>
+      
+      <div class="external-link">
+        <a 
+          href="https://www.znanylekarz.pl/magdalena-hossadyna/psycholog-psychoterapeuta/wieliczka" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn"
+        >
+          Zobacz wszystkie opinie na ZnanyLekarz.pl
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    text-align: center;
+  }
+  
+  .reviews {
+    background-color: var(--color-white);
+  }
+
+  .reviews-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reviews-carousel {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .review-card {
+    background-color: var(--color-off-white);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid var(--color-dusty-pink);
+    transition: all 0.6s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    grid-column: span 1;
+    display: none;
+  }
+
+  .review-card.active {
+    display: block;
+    animation: slideInUp 0.6s ease forwards;
+    pointer-events: auto;
+  }
+
+  @keyframes slideInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .review-card.active:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+  }
+
+  .stars {
+    color: #FFD700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-style: italic;
+    font-size: 0.8rem; 
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark-graphite);
+  }
+
+  .review-author {
+    margin-bottom: 0.5rem;
+  }
+
+  .review-author strong {
+    color: var(--color-dark-graphite);
+    font-size: 1.1rem;
+  }
+
+  .author-info {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-dusty-pink);
+    margin-top: 0.2rem;
+  }
+
+  .review-source {
+    font-size: 0.8rem;
+    color: var(--color-sage-green);
+    font-weight: 500;
+  }
+
+  .reviews-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-dusty-pink);
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .indicator.active,
+  .indicator:hover {
+    background-color: var(--color-dusty-pink);
+  }
+
+  .reviews-summary {
+    background-color: var(--color-off-white);
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .reviews-summary h3 {
+    color: var(--color-dark-graphite);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .reviews-summary p {
+    color: var(--color-sage-green);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-dusty-pink);
+    font-family: var(--font-heading);
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    color: var(--color-dark-graphite);
+    margin-top: 0.5rem;
+  }
+
+  .stat .stars {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+
+ 
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .reviews-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      padding: 1.5rem;
+    }
+
+    .review-card.active {
+      margin-bottom: 1.5rem;
+    }
+
+    .reviews-summary {
+      padding: 2rem 1rem;
+    }
+
+    .summary-stats {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const reviewsGrid = document.getElementById('reviews-grid');
+    const indicators = document.querySelectorAll('.indicator');
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    if (!reviewsGrid || reviewCards.length <= 2) return;
+    
+    let currentSlide = 0;
+    const totalSlides = Math.ceil(reviewCards.length / 2);
+    let autoSlideInterval: NodeJS.Timeout | undefined;
+    let isPaused = false;
+    
+    // Funkcja do pokazania określonego slajdu
+    function showSlide(slideIndex: number): void {
+      // Ukryj wszystkie karty
+      reviewCards.forEach((card) => {
+        const cardElement = card as HTMLElement;
+        cardElement.classList.remove('active');
+        cardElement.style.animationDelay = '0s';
+      });
+      
+      // Po krótkiej przerwie pokaż nowe karty
+      setTimeout(() => {
+        const startIndex = slideIndex * 2;
+        for (let i = startIndex; i < startIndex + 2 && i < reviewCards.length; i++) {
+          const cardElement = reviewCards[i] as HTMLElement;
+          const delayIndex = i - startIndex;
+          cardElement.style.animationDelay = `${delayIndex * 0.15}s`;
+          cardElement.classList.add('active');
+        }
+      }, 150);
+      
+      // Zaktualizuj wskaźniki
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === slideIndex);
+      });
+      
+      currentSlide = slideIndex;
+    }
+    
+    // Funkcja do następnego slajdu
+    function nextSlide(): void {
+      const nextIndex = (currentSlide + 1) % totalSlides;
+      showSlide(nextIndex);
+    }
+    
+    // Automatyczne przełączanie co 15 sekund
+    function startAutoSlide(): void {
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(() => {
+        if (!isPaused) {
+          nextSlide();
+        }
+      }, 15000);
+    }
+    
+    // Obsługa kliknięć wskaźników
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        showSlide(index);
+        startAutoSlide(); // Restart timer
+      });
+    });
+    
+    // Pauza przy hover na sekcji opinii
+    const reviewsSection = document.querySelector('.reviews');
+    if (reviewsSection) {
+      reviewsSection.addEventListener('mouseenter', () => {
+        isPaused = true;
+      });
+      
+      reviewsSection.addEventListener('mouseleave', () => {
+        isPaused = false;
+      });
+    }
+    
+    // Uruchom automatyczne przełączanie
+    if (totalSlides > 1) {
+      startAutoSlide();
+    }
+  });
+</script>
