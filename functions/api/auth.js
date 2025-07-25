@@ -1,105 +1,31 @@
-export async function onRequestGet(context) {
-  const { request, env } = context;
-  const url = new URL(request.url);
+export async function onRequest(context) {
+    const {
+        request, // same as existing Worker API
+        env, // same as existing Worker API
+        params, // if filename includes [id] or [[path]]
+        waitUntil, // same as ctx.waitUntil in existing Worker API
+        next, // used for middleware or to fetch assets
+        data, // arbitrary space for passing data between middlewares
+    } = context;
 
-  // Client ID ze zmiennych środowiskowych
-  const clientId = env.GITHUB_CLIENT_ID;
-  if (!clientId) {
-    return new Response('GITHUB_CLIENT_ID not configured', { status: 500 });
-  }
+    const client_id = env.GITHUB_CLIENT_ID;
 
-  const redirectUri = `${url.origin}/api/callback`;
-  const state = url.searchParams.get('state') || 'random-state';
+    try {
+        const url = new URL(request.url);
+        const redirectUrl = new URL('https://github.com/login/oauth/authorize');
+        redirectUrl.searchParams.set('client_id', client_id);
+        redirectUrl.searchParams.set('redirect_uri', url.origin + '/api/callback');
+        redirectUrl.searchParams.set('scope', 'repo user');
+        redirectUrl.searchParams.set(
+            'state',
+            crypto.getRandomValues(new Uint8Array(12)).join(''),
+        );
+        return Response.redirect(redirectUrl.href, 301);
 
-  // Redirect to GitHub OAuth
-  const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=repo&state=${state}`;
-
-  return Response.redirect(githubAuthUrl, 302);
-}
-
-export async function onRequestPost(context) {
-  const { request, env } = context;
-
-  try {
-    const body = await request.json();
-    const { code } = body;
-
-    if (!code) {
-      return new Response(JSON.stringify({ error: 'No code provided' }), {
-        status: 400,
-        headers: { 
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': 'Content-Type',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS'
-        },
-      });
+    } catch (error) {
+        console.error(error);
+        return new Response(error.message, {
+            status: 500,
+        });
     }
-
-    // Exchange code for access token
-    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        client_id: env.GITHUB_CLIENT_ID,
-        client_secret: env.GITHUB_CLIENT_SECRET,
-        code: code,
-      }),
-    });
-
-    const tokenData = await tokenResponse.json();
-
-    if (tokenData.error) {
-      return new Response(
-        JSON.stringify({ error: tokenData.error_description }),
-        {
-          status: 400,
-          headers: { 
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Methods': 'POST, OPTIONS'
-          },
-        }
-      );
-    }
-
-    // Return token in format expected by Decap CMS
-    return new Response(JSON.stringify({ 
-      token: tokenData.access_token,
-      provider: 'github'
-    }), {
-      headers: { 
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS'
-      },
-    });
-  } catch (error) {
-    console.error('Auth error:', error);
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
-      status: 500,
-      headers: { 
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS'
-      },
-    });
-  }
-}
-
-// Handle CORS preflight requests
-export async function onRequestOptions(context) {
-  return new Response(null, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS'
-    }
-  });
 }
