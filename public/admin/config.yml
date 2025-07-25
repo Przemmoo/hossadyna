@@ -2,6 +2,8 @@ backend:
   name: github
   repo: Przemmoo/hossadyna
   branch: main
+  auth_type: implicit
+  app_id: Ov23lixByqAalaXJToUG
 
 media_folder: 'public/images'
 public_folder: '/images'
