@@ -9,5 +9,39 @@
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <script>
+      // Custom auth handling for GitHub OAuth
+      if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        const params = new URLSearchParams(hash);
+        const accessToken = params.get('access_token');
+        
+        if (accessToken) {
+          console.log('Received access token, setting up authentication');
+          
+          // Store token for Decap CMS
+          localStorage.setItem('netlify-cms-user', JSON.stringify({
+            token: accessToken,
+            login: 'github-user',
+            name: 'GitHub User'
+          }));
+          
+          // Clear hash and reload
+          window.location.hash = '';
+          window.location.reload();
+        }
+      }
+      
+      // Check for errors in URL hash
+      const urlParams = new URLSearchParams(window.location.search);
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const error = urlParams.get('error') || hashParams.get('error');
+      
+      if (error) {
+        console.error('OAuth error:', error);
+        alert('Błąd autoryzacji: ' + error);
+      }
+    </script>
   </body>
 </html>
