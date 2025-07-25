@@ -1,15 +1,19 @@
 export async function onRequestGet(context) {
-  const { request } = context;
+  const { request, env } = context;
   const url = new URL(request.url);
-  
-  // Client ID z OAuth App
-  const clientId = 'Ov23lixByqAalaXJToUG';
+
+  // Client ID ze zmiennych środowiskowych
+  const clientId = env.GITHUB_CLIENT_ID;
+  if (!clientId) {
+    return new Response('GITHUB_CLIENT_ID not configured', { status: 500 });
+  }
+
   const redirectUri = `${url.origin}/api/callback`;
   const state = url.searchParams.get('state') || 'random-state';
-  
+
   // Redirect to GitHub OAuth
   const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=repo&state=${state}`;
-  
+
   return Response.redirect(githubAuthUrl, 302);
 }
 
