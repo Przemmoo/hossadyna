@@ -2,9 +2,8 @@ backend:
   name: github
   repo: Przemmoo/hossadyna
   branch: main
-  base_url: https://hossadyna.pages.dev
-  auth_endpoint: /api/auth
-  auth_scope: repo
+  auth_type: implicit
+  app_id: Ov23lixByqAalaXJToUG
 
 media_folder: 'public/images'
 public_folder: '/images'
