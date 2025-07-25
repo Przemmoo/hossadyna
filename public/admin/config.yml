@@ -44,33 +44,11 @@ collections:
           max: 5,
           step: 1,
         }
+      - { label: 'Terapia', name: 'therapy', widget: 'string', required: false }
+      - { label: 'Źródło', name: 'source', widget: 'string', required: false }
       - { label: 'Data', name: 'date', widget: 'datetime' }
-      - { label: 'Treść opinii', name: 'content', widget: 'text' }
-      - {
-          label: 'Wyróżniona',
-          name: 'featured',
-          widget: 'boolean',
-          default: false,
-        }
-
-  - name: 'services'
-    label: 'Usługi'
-    folder: 'src/content/services'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - { label: 'Nazwa usługi', name: 'title', widget: 'string' }
-      - { label: 'Opis', name: 'description', widget: 'text' }
-      - { label: 'Cena', name: 'price', widget: 'string' }
-      - { label: 'Czas trwania', name: 'duration', widget: 'string' }
-      - {
-          label: 'Typ',
-          name: 'type',
-          widget: 'select',
-          options: ['gabinet', 'online', 'oba'],
-        }
-      - { label: 'Ikona', name: 'icon', widget: 'string' }
-      - { label: 'Kolejność', name: 'order', widget: 'number' }
+      - { label: 'Kolejność', name: 'order', widget: 'number', required: false }
+      - { label: 'Treść opinii', name: 'body', widget: 'markdown' }
 
   - name: 'settings'
     label: 'Ustawienia'
@@ -81,8 +59,13 @@ collections:
         fields:
           - { label: 'Telefon', name: 'phone', widget: 'string' }
           - { label: 'Email', name: 'email', widget: 'string' }
-          - { label: 'Adres', name: 'address', widget: 'text' }
-          - { label: 'Godziny pracy', name: 'hours', widget: 'text' }
+          - { label: 'Adres (footer)', name: 'address', widget: 'text' }
+          - { label: 'Godziny pracy (footer)', name: 'hours', widget: 'text' }
+          - { label: 'Godziny dostępności telefonu', name: 'phone_hours', widget: 'text' }
+          - { label: 'Czas trwania sesji', name: 'session_duration', widget: 'string' }
+          - { label: 'Formy terapii', name: 'therapy_forms', widget: 'text' }
+          - { label: 'Adres gabinetu', name: 'office_address', widget: 'text' }
+          - { label: 'Dostępność (kalendarz)', name: 'availability', widget: 'text' }
           - {
               label: 'Facebook',
               name: 'facebook',

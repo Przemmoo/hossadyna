@@ -1,5 +1,14 @@
 ---
 // Sekcja "Umów wizytę" z widgetem Znanego Lekarza
+import { getEntry } from 'astro:content';
+
+const contactData = await getEntry('settings', 'contact');
+const contact = contactData?.data || {
+  session_duration: '45 minut',
+  therapy_forms: '- Terapia indywidualna\n- Terapia online\n- Terapia w gabinecie',
+  office_address: 'ul. Krakowska 6a\n32-020 Wieliczka',
+  availability: 'Poniedziałek: 12:00 - 18:00\nWtorek: 8:00 - 13:00\nŚroda: 8:00 - 12:00\nCzwartek: 14:00 - 18:00\nPiątek: 14:00 - 17:00'
+};
 ---
 
 <section id="appointment" class="appointment section">
@@ -24,7 +33,7 @@
             </div>
             <div class="info-content">
               <h4>Czas trwania</h4>
-              <p>Sesja terapeutyczna trwa 45 minut</p>
+              <p>Sesja terapeutyczna trwa {contact.session_duration}</p>
             </div>
           </div>
 
@@ -36,9 +45,7 @@
             </div>
             <div class="info-content">
               <h4>Formy terapii</h4>
-              <p>• Psychoterapia indywidualna<br>
-                • Terapia par<br>
-                • Konsultacje online</p>
+              <p set:html={contact.therapy_forms.replace(/\n/g, '<br>')}></p>
             </div>
           </div>
           
@@ -51,7 +58,7 @@
             </div>
             <div class="info-content">
               <h4>Lokalizacja</h4>
-              <p>ul. Krakowska 6a, Wieliczka<br>lub online</p>
+              <p set:html={contact.office_address.replace(/\n/g, '<br>') + '<br>lub online'}></p>
             </div>
           </div>
           
@@ -66,11 +73,7 @@
             </div>
             <div class="info-content">
               <h4>Dostępność</h4>
-              <p>Poniedziałek: 12:00-17:00<br>
-                Wtorek: 8:00-13:00<br>
-                Środa: 8:00-12:00<br>
-                Czwartek: 14:00-18:00<br>
-                Piątek: 14:00-17:00</p>
+              <p set:html={contact.availability.replace(/\n/g, '<br>')}></p>
             </div>
           </div>
 
@@ -108,18 +111,18 @@
       <h4>Kontakt bezpośredni</h4>
       <p>Wolisz skontaktować się bezpośrednio?</p>
       <div class="contact-methods">
-        <a href="tel:+48607234234" class="contact-method">
+        <a href={`tel:${contact.phone.replace(/\s/g, '')}`} class="contact-method">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" fill="none"/>
           </svg>
-          +48 607 234 234
+          {contact.phone}
         </a>
-        <a href="mailto:kontakt@magdalenahossadyna.pl" class="contact-method">
+        <a href={`mailto:${contact.email}`} class="contact-method">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
             <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
           </svg>
-          kontakt@magdalenahossadyna.pl
+          {contact.email}
         </a>
       </div>
     </div>
