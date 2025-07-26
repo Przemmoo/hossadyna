@@ -103,16 +103,16 @@ collections:
         fields:
           - { label: 'Tytuł sekcji', name: 'title', widget: 'string' }
           - {
-              label: 'Pierwszy akapit wprowadzający (możesz używać HTML: <strong>, <em>, <br>)',
+              label: 'Pierwszy akapit wprowadzający (format Markdown)',
               name: 'intro_paragraph_1',
-              widget: 'text',
-              hint: 'Możesz używać podstawowych tagów HTML jak <strong>tekst</strong> dla pogrubienia, <em>tekst</em> dla kursywy.'
+              widget: 'markdown',
+              hint: 'Możesz używać składni Markdown: **tekst** dla pogrubienia, *tekst* dla kursywy.',
             }
           - {
-              label: 'Drugi akapit wprowadzający (możesz używać HTML: <strong>, <em>, <br>)',
+              label: 'Drugi akapit wprowadzający (format Markdown)',
               name: 'intro_paragraph_2',
-              widget: 'text',
-              hint: 'Możesz używać podstawowych tagów HTML jak <strong>tekst</strong> dla pogrubienia, <em>tekst</em> dla kursywy.'
+              widget: 'markdown',
+              hint: 'Możesz używać składni Markdown: **tekst** dla pogrubienia, *tekst* dla kursywy.',
             }
           - {
               label: 'Tytuł sekcji wykształcenia',
@@ -136,10 +136,10 @@ collections:
               widget: 'string',
             }
           - {
-              label: 'Opis podejścia terapeutycznego (możesz używać HTML: <strong>, <em>, <br>)',
+              label: 'Opis podejścia terapeutycznego (format Markdown)',
               name: 'approach_description',
-              widget: 'text',
-              hint: 'Możesz używać podstawowych tagów HTML jak <strong>tekst</strong> dla pogrubienia, <em>tekst</em> dla kursywy.'
+              widget: 'markdown',
+              hint: 'Możesz używać składni Markdown: **tekst** dla pogrubienia, *tekst* dla kursywy.',
             }
           - {
               label: 'Zdjęcie profilowe',
