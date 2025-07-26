@@ -162,12 +162,11 @@ const otherArticles = allArticles
 
   h3 {
     font-size: 1.5rem;
-    margin: 2.5rem 0 1rem 0;
   }
   
   .article-page {
     background-color: var(--color-white);
-    padding-top: 160px;
+    padding-top: 120px;
     margin-bottom: 0px;
   }
 
@@ -210,12 +209,35 @@ const otherArticles = allArticles
 
   .toc-sticky {
     position: sticky;
-    top: 160px;
+    top: 120px;
     background-color: var(--color-white);
-    padding: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     border: 2px solid var(--color-dusty-pink);
     border-radius: 15px;
     max-height: calc(100vh - 180px);
+    overflow-y: auto;
+  }
+
+  /* Stylowanie paska przewijania */
+  .toc-sticky::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .toc-sticky::-webkit-scrollbar-track {
+    background: var(--color-off-white);
+    border-radius: 3px;
+  }
+
+  .toc-sticky::-webkit-scrollbar-thumb {
+    background: var(--color-dusty-pink);
+    border-radius: 3px;
+  }
+
+  .toc-sticky::-webkit-scrollbar-thumb:hover {
+    background: var(--color-sage-green);
   }
 
   .toc-sticky h3 {
