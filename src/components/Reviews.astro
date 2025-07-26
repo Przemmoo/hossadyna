@@ -110,7 +110,7 @@ function generateStars(rating: number) {
 
   .reviews-container {
     position: relative;
-    height: 450px;
+    height: 350px;
     overflow: hidden;
     border-radius: 20px;
     background: linear-gradient(135deg, var(--color-off-white) 0%, #f8f6f4 100%);
@@ -147,7 +147,6 @@ function generateStars(rating: number) {
   .review-content {
     text-align: center;
     max-width: 600px;
-    position: relative;
   }
 
   .quote-icon {
@@ -165,8 +164,7 @@ function generateStars(rating: number) {
   .stars {
     color: #FFD700;
     font-size: 1.8rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-top: -1rem;
   }
 
   .review-text {
@@ -205,19 +203,19 @@ function generateStars(rating: number) {
 
   .review-author strong {
     color: var(--color-dark-graphite);
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     display: block;
   }
 
   .author-info {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     color: var(--color-dusty-pink);
     margin-top: 0.3rem;
     display: block;
   }
 
   .review-source {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-sage-green);
     font-weight: 600;
   }
@@ -341,12 +339,12 @@ function generateStars(rating: number) {
   /* Mobile Styles */
   @media (max-width: 768px) {
     .reviews-container {
-      height: 380px;
+      height: 350px;
       margin: 0 1rem;
     }
 
     .review-slide {
-      padding: 2.5rem 1.5rem;
+      padding: 1.5rem;
     }
 
     .quote-icon {
@@ -356,18 +354,16 @@ function generateStars(rating: number) {
 
     .stars {
       font-size: 1.5rem;
-      margin-bottom: 1.5rem;
     }
 
     .review-text {
       font-size: 0.8rem;
-      max-height: 160px;
-      -webkit-line-clamp: 7;
+      max-height: 180px;
+      -webkit-line-clamp: 9;
     }
 
     .review-footer {
       flex-direction: column;
-      gap: 1rem;
       text-align: center;
     }
 
@@ -420,8 +416,8 @@ function generateStars(rating: number) {
 
     .review-text {
       font-size: 0.8rem;
-      max-height: 150px;
-      -webkit-line-clamp: 6;
+      max-height: 250px;
+      -webkit-line-clamp: 12;
     }
 
     .review-author strong {
