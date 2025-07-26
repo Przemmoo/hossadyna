@@ -165,6 +165,7 @@ const contact = contactData?.data || {
   }
 
   .contact-details h4 {
+    margin-top: -0.3rem;
     margin-bottom: 0.5rem;
     color: var(--color-dark-graphite);
     font-size: 1.1rem;
@@ -243,6 +244,10 @@ const contact = contactData?.data || {
       align-self: center;
     }
     
+    .contact-details h4 {
+      margin-top: 1rem;
+    }
+    
     .map-section {
       padding: 2.5rem 2rem;
     }
@@ -280,10 +285,11 @@ const contact = contactData?.data || {
     .map-section h3 {
       font-size: 1.4rem;
     }
+
     
-    .map-embed iframe {
-      min-height: 300px;
-    }
+
+  .map-embed iframe {
+    min-height: 300px;
   }
 
   @media (max-width: 480px) {
