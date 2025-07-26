@@ -111,7 +111,7 @@ const otherArticles = allArticles
     </article>
 
     <!-- Sekcja z innymi artykułami -->
-    <section class="related-articles">
+    <section id="articles" class="related-articles">
       <div class="container">
         <h2>Inne artykuły, które mogą Cię zainteresować</h2>
         <div class="related-articles-grid">
@@ -549,9 +549,9 @@ const otherArticles = allArticles
             if (linkRect.top < containerRect.top || linkRect.bottom > containerRect.bottom) {
               // Przewiń do aktywnego linku z małym marginesem
               const scrollTop = tocContainer.scrollTop;
-              const linkOffsetTop = link.offsetTop;
-              const containerHeight = tocContainer.clientHeight;
-              const linkHeight = link.offsetHeight;
+              const linkOffsetTop = (link as HTMLElement).offsetTop;
+              const containerHeight = (tocContainer as HTMLElement).clientHeight;
+              const linkHeight = (link as HTMLElement).offsetHeight;
               
               // Centruj aktywny link w kontenerze
               const targetScrollTop = linkOffsetTop - (containerHeight / 2) + (linkHeight / 2);

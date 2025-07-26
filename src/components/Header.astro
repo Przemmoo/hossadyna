@@ -13,11 +13,11 @@
       
       <nav class="nav">
         <ul class="nav-list">
-          <li><a href="#about" class="nav-link" data-section="about">O mnie</a></li>
-          <li><a href="#services" class="nav-link" data-section="services">Oferta</a></li>
-          <li><a href="#reviews" class="nav-link" data-section="reviews">Opinie</a></li>
-          <li><a href="#articles" class="nav-link" data-section="articles">Artykuły</a></li>
-          <li><a href="#contact" class="nav-link" data-section="contact">Kontakt</a></li>
+          <li><a href="/#about" class="nav-link" data-section="about">O mnie</a></li>
+          <li><a href="/#services" class="nav-link" data-section="services">Oferta</a></li>
+          <li><a href="/#reviews" class="nav-link" data-section="reviews">Opinie</a></li>
+          <li><a href="/#articles" class="nav-link" data-section="articles">Artykuły</a></li>
+          <li><a href="/#contact" class="nav-link contact-link">Kontakt</a></li>
         </ul>
       </nav>
 
@@ -51,6 +51,11 @@
   .logo-img {
     padding-top: 0.4rem;
     height: 80px;
+  }
+
+  .nav {
+    padding-right: 1rem;
+    align-items: center;
   }
 
   .nav-list {
@@ -146,14 +151,50 @@
           nav.classList.remove('active');
           mobileMenuBtn.classList.remove('active');
           
-          // Handle navigation - check if we're on homepage or subpage
+          // Special handling for contact link - works on all pages
+          if (link.classList.contains('contact-link')) {
+            e.preventDefault();
+            const contactElement = document.getElementById('contact');
+            if (contactElement && header) {
+              const headerHeight = header.offsetHeight;
+              const targetPosition = contactElement.offsetTop - headerHeight - 20;
+              
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+            return;
+          }
+          
+          // Handle other navigation links
           const href = link.getAttribute('href');
           const sectionId = link.getAttribute('data-section');
           
           if (href && href.startsWith('/#') && sectionId) {
-            // Check if we're on the homepage
-            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-              // We're on homepage, scroll to section
+            // Check if we're on the homepage or article page
+            const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+            const isArticlePage = window.location.pathname.startsWith('/artykuly/');
+            
+            // For articles link: work on both homepage and article pages
+            if (sectionId === 'articles' && (isHomepage || isArticlePage)) {
+              e.preventDefault();
+              const targetElement = document.getElementById('articles');
+              
+              if (targetElement && header) {
+                const headerHeight = header.offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                  top: targetPosition,
+                  behavior: 'smooth'
+                });
+              }
+              return;
+            }
+            
+            // For other links: only work on homepage
+            if (isHomepage) {
               e.preventDefault();
               const targetElement = document.getElementById(sectionId);
               
@@ -176,27 +217,67 @@
       });
     }
 
-    // Handle all anchor links with hash for smooth scrolling (only on homepage)
+    // Handle all anchor links with hash for smooth scrolling
     document.addEventListener('click', (e) => {
       if (!e.target) return;
       
       const link = (e.target as Element).closest('a[href^="/#"]') as HTMLAnchorElement;
-      if (link && header && (window.location.pathname === '/' || window.location.pathname === '/index.html')) {
-        e.preventDefault();
+      if (link && header) {
         const href = link.getAttribute('href');
         if (!href) return;
         
-        const targetId = href.substring(2);
-        const targetElement = document.getElementById(targetId);
+        const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+        const isArticlePage = window.location.pathname.startsWith('/artykuly/');
         
-        if (targetElement) {
-          const headerHeight = header.offsetHeight;
-          const targetPosition = targetElement.offsetTop - headerHeight - 0;
+        // Special handling for contact links - work on all pages
+        if (href === '/#contact') {
+          e.preventDefault();
+          const contactElement = document.getElementById('contact');
+          if (contactElement) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = contactElement.offsetTop - headerHeight - 0;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+          return;
+        }
+        
+        // Special handling for articles links - work on homepage and article pages
+        if (href === '/#articles') {
+          if (isHomepage || isArticlePage) {
+            e.preventDefault();
+            const articlesElement = document.getElementById('articles');
+            if (articlesElement) {
+              const headerHeight = header.offsetHeight;
+              const targetPosition = articlesElement.offsetTop - headerHeight - 0;
+              
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+            return;
+          }
+        }
+        
+        // Handle other sections only on homepage
+        if (isHomepage) {
+          e.preventDefault();
+          const targetId = href.substring(2);
+          const targetElement = document.getElementById(targetId);
           
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+          if (targetElement) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = targetElement.offsetTop - headerHeight - 0;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
         }
       }
     });

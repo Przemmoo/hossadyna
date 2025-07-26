@@ -61,11 +61,23 @@ collections:
           - { label: 'Email', name: 'email', widget: 'string' }
           - { label: 'Adres (footer)', name: 'address', widget: 'text' }
           - { label: 'Godziny pracy (footer)', name: 'hours', widget: 'text' }
-          - { label: 'Godziny dostępności telefonu', name: 'phone_hours', widget: 'text' }
-          - { label: 'Czas trwania sesji', name: 'session_duration', widget: 'string' }
+          - {
+              label: 'Godziny dostępności telefonu',
+              name: 'phone_hours',
+              widget: 'text',
+            }
+          - {
+              label: 'Czas trwania sesji',
+              name: 'session_duration',
+              widget: 'string',
+            }
           - { label: 'Formy terapii', name: 'therapy_forms', widget: 'text' }
           - { label: 'Adres gabinetu', name: 'office_address', widget: 'text' }
-          - { label: 'Dostępność (kalendarz)', name: 'availability', widget: 'text' }
+          - {
+              label: 'Dostępność (kalendarz)',
+              name: 'availability',
+              widget: 'text',
+            }
           - {
               label: 'Facebook',
               name: 'facebook',
