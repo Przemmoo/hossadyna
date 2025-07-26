@@ -31,8 +31,8 @@ const contact = contactData?.data || {
           </div>
           <div class="contact-details">
             <h4>Telefon</h4>
-            <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
-            <p set:html={contact.phone_hours.replace(/\n/g, '<br>')}></p>
+            <a href={`tel:${contact?.phone?.replace(/\s/g, '') || ''}`}>{contact?.phone || 'Brak numeru'}</a>
+            <p set:html={contact?.phone_hours?.replace(/\n/g, '<br>') || 'Brak informacji o godzinach'}></p>
           </div>
         </div>
 
@@ -59,7 +59,7 @@ const contact = contactData?.data || {
           </div>
           <div class="contact-details">
             <h4>Adres gabinetu</h4>
-            <address set:html={contact.address.replace(/\n/g, '<br>')}></address>
+            <address set:html={contact?.address?.replace(/\n/g, '<br>') || 'Brak adresu'}></address>
             <p>Parking dostępny</p>
           </div>
         </div>

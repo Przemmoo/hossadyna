@@ -63,7 +63,7 @@ const settingsCollection = defineCollection({
     facebook: z.string().optional(),
     instagram: z.string().optional(),
     linkedin: z.string().optional(),
-    
+
     // Schemat dla about.md
     title: z.string().optional(),
     intro_paragraph_1: z.string().optional(),
