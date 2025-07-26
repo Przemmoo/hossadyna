@@ -219,7 +219,6 @@ const otherArticles = allArticles
     border-radius: 15px;
     max-height: calc(100vh - 180px);
     overflow-y: auto;
-    margin-right: 8px;
   }
 
   /* Stylowanie paska przewijania */
@@ -539,6 +538,30 @@ const otherArticles = allArticles
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
           link.classList.add('active');
+          
+          // Auto-scroll aktywnego linku do widoku w spisie treści
+          const tocContainer = document.querySelector('.toc-sticky');
+          if (tocContainer && link) {
+            const linkRect = link.getBoundingClientRect();
+            const containerRect = tocContainer.getBoundingClientRect();
+            
+            // Sprawdź czy link jest poza widocznym obszarem
+            if (linkRect.top < containerRect.top || linkRect.bottom > containerRect.bottom) {
+              // Przewiń do aktywnego linku z małym marginesem
+              const scrollTop = tocContainer.scrollTop;
+              const linkOffsetTop = link.offsetTop;
+              const containerHeight = tocContainer.clientHeight;
+              const linkHeight = link.offsetHeight;
+              
+              // Centruj aktywny link w kontenerze
+              const targetScrollTop = linkOffsetTop - (containerHeight / 2) + (linkHeight / 2);
+              
+              tocContainer.scrollTo({
+                top: targetScrollTop,
+                behavior: 'smooth'
+              });
+            }
+          }
         }
       });
     }
