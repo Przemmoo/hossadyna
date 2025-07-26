@@ -97,6 +97,25 @@ collections:
               required: false,
             }
 
+      - label: 'Sekcja O mnie'
+        name: 'about'
+        file: 'src/content/settings/about.md'
+        fields:
+          - { label: 'Tytuł sekcji', name: 'title', widget: 'string' }
+          - { label: 'Pierwszy akapit wprowadzający', name: 'intro_paragraph_1', widget: 'text' }
+          - { label: 'Drugi akapit wprowadzający', name: 'intro_paragraph_2', widget: 'text' }
+          - { label: 'Tytuł sekcji wykształcenia', name: 'qualifications_title', widget: 'string' }
+          - { 
+              label: 'Lista wykształcenia i kwalifikacji', 
+              name: 'qualifications', 
+              widget: 'list',
+              field: { label: 'Kwalifikacja', name: 'qualification', widget: 'string' }
+            }
+          - { label: 'Tytuł sekcji podejścia', name: 'approach_title', widget: 'string' }
+          - { label: 'Opis podejścia terapeutycznego', name: 'approach_description', widget: 'text' }
+          - { label: 'Zdjęcie profilowe', name: 'profile_image', widget: 'image' }
+          - { label: 'Alt dla zdjęcia profilowego', name: 'profile_image_alt', widget: 'string' }
+
       - label: 'SEO'
         name: 'seo'
         file: 'src/content/settings/seo.md'
