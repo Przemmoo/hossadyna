@@ -7,6 +7,10 @@ backend:
 
 media_folder: 'public/images'
 public_folder: '/images'
+
+# Site configuration
+site_url: https://hossadyna.pages.dev
+display_url: https://hossadyna.pages.dev
 logo_url: '/images/logo.svg'
 
 collections:
@@ -54,50 +58,6 @@ collections:
   - name: 'settings'
     label: 'Ustawienia'
     files:
-      - label: 'Informacje kontaktowe'
-        name: 'contact'
-        file: 'src/content/settings/contact.md'
-        fields:
-          - { label: 'Telefon', name: 'phone', widget: 'string' }
-          - { label: 'Email', name: 'email', widget: 'string' }
-          - { label: 'Adres (footer)', name: 'address', widget: 'text' }
-          - { label: 'Godziny pracy (footer)', name: 'hours', widget: 'text' }
-          - {
-              label: 'Godziny dostępności telefonu',
-              name: 'phone_hours',
-              widget: 'text',
-            }
-          - {
-              label: 'Czas trwania sesji',
-              name: 'session_duration',
-              widget: 'string',
-            }
-          - { label: 'Formy terapii', name: 'therapy_forms', widget: 'text' }
-          - { label: 'Adres gabinetu', name: 'office_address', widget: 'text' }
-          - {
-              label: 'Dostępność (kalendarz)',
-              name: 'availability',
-              widget: 'text',
-            }
-          - {
-              label: 'Facebook',
-              name: 'facebook',
-              widget: 'string',
-              required: false,
-            }
-          - {
-              label: 'Instagram',
-              name: 'instagram',
-              widget: 'string',
-              required: false,
-            }
-          - {
-              label: 'LinkedIn',
-              name: 'linkedin',
-              widget: 'string',
-              required: false,
-            }
-
       - label: 'Sekcja O mnie'
         name: 'about'
         file: 'src/content/settings/about.md'
@@ -153,6 +113,63 @@ collections:
               widget: 'string',
             }
 
+      - label: 'Informacje kontaktowe'
+        name: 'contact'
+        file: 'src/content/settings/contact.md'
+        fields:
+          - { label: 'Telefon', name: 'phone', widget: 'string' }
+          - { label: 'Email', name: 'email', widget: 'string' }
+          - { label: 'Adres (footer)', name: 'address', widget: 'text' }
+          - { label: 'Godziny pracy (footer)', name: 'hours', widget: 'text' }
+          - {
+              label: 'Godziny dostępności telefonu',
+              name: 'phone_hours',
+              widget: 'text',
+            }
+          - {
+              label: 'Czas trwania sesji',
+              name: 'session_duration',
+              widget: 'string',
+            }
+          - { label: 'Formy terapii', name: 'therapy_forms', widget: 'text' }
+          - { label: 'Adres gabinetu', name: 'office_address', widget: 'text' }
+          - {
+              label: 'Dostępność (kalendarz)',
+              name: 'availability',
+              widget: 'text',
+            }
+          - {
+              label: 'Facebook',
+              name: 'facebook',
+              widget: 'string',
+              required: false,
+            }
+          - {
+              label: 'Instagram',
+              name: 'instagram',
+              widget: 'string',
+              required: false,
+            }
+          - {
+              label: 'LinkedIn',
+              name: 'linkedin',
+              widget: 'string',
+              required: false,
+            }
+
+      - label: 'Widget ZnanyLekarz'
+        name: 'znanylekarz'
+        file: 'src/content/settings/znanylekarz.md'
+        fields:
+          - { label: 'Kod widgetu', name: 'widget_code', widget: 'text' }
+          - { label: 'Link do profilu', name: 'profile_url', widget: 'string' }
+          - {
+              label: 'Aktywny',
+              name: 'active',
+              widget: 'boolean',
+              default: true,
+            }
+
       - label: 'SEO'
         name: 'seo'
         file: 'src/content/settings/seo.md'
@@ -171,17 +188,4 @@ collections:
               name: 'gtm_id',
               widget: 'string',
               required: false,
-            }
-
-      - label: 'Widget ZnanyLekarz'
-        name: 'znanylekarz'
-        file: 'src/content/settings/znanylekarz.md'
-        fields:
-          - { label: 'Kod widgetu', name: 'widget_code', widget: 'text' }
-          - { label: 'Link do profilu', name: 'profile_url', widget: 'string' }
-          - {
-              label: 'Aktywny',
-              name: 'active',
-              widget: 'boolean',
-              default: true,
             }
