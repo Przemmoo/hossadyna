@@ -1,24 +1,41 @@
 ---
-title: 'O mnie - poznajmy się bliżej'
-intro_paragraph_1: |
-  Jako certyfikowany **psychoterapeuta**, moją misją jest towarzyszenie Państwu 
-  w procesie odkrywania własnych zasobów i możliwości radzenia sobie z trudnościami życiowymi. 
-  Wierzę, że każdy człowiek ma w sobie potencjał do zmiany i rozwoju.
-intro_paragraph_2: |
-  W swojej praktyce prowadzę **psychoterapię poznawczo-behawioralną**, która jest jedną z najbardziej 
-  skutecznych metod terapeutycznych popartych badaniami naukowymi. Terapia CBT pomoże Państwu zrozumieć 
-  związki między myślami, emocjami i zachowaniami oraz nauczy skutecznych strategii radzenia sobie z problemami.
-qualifications_title: 'Wykształcenie i kwalifikacje'
+title: O mnie - poznajmy się bliżej
+intro_paragraph_1: >-
+  Jestem psychologiem i psychoterapeutką. 
+
+
+  Ukończyłam 4-letnie, całościowe szkolenie z psychoterapii na Katedrze Psychoterapii UJ Collegium Medicum, atestowane przez Sekcję Naukową Polskiego Towarzystwa Psychiatrycznego. Ukończyłam również studia psychologiczne o specjalności psychologia kliniczna z neuropsychologią.
+
+
+  W pracy z pacjentami najważniejsze jest dla mnie indywidualne podejście oraz stworzenie atmosfery bezpieczeństwa i zaufania. Wierzę, że w oparciu o pełną szacunku, nieoceniającą relację możliwa jest głęboka i skuteczna praca nad zgłaszanymi trudnościami.
+intro_paragraph_2: Pracuję w **podejściu integracyjnym
+  (bio-psycho-społecznym)**. Oznacza to, że w procesie terapeutycznym
+  uwzględniam szeroką perspektywę, obejmującą czynniki biologiczne
+  (funkcjonowanie organizmu), psychologiczne (myśli, emocje, przeżycia) oraz
+  społeczne (relacje, środowisko). Takie całościowe spojrzenie pozwala na
+  głębsze zrozumienie problemu i dopasowanie interwencji do unikalnych potrzeb
+  pacjenta, co prowadzi do trwałej i odczuwalnej zmiany.
+qualifications_title: Wykształcenie i kwalifikacje
 qualifications:
-  - 'Magister psychologii klinicznej - Uniwersytet Jagielloński'
-  - 'Certyfikowany psychoterapeuta poznawczo-behawioralny'
-  - 'Certyfikat terapii online - Polska Akademia Psychoterapii'
-  - 'Członek Polskiego Towarzystwa Terapii Poznawczej i Behawioralnej'
-approach_title: 'Moje podejście terapeutyczne'
-approach_description: |
-  W pracy z pacjentami stawiam na budowanie bezpiecznej relacji terapeutycznej, opartej na **zaufaniu** 
-  i wzajemnym szacunku. Każdy człowiek jest dla mnie wyjątkowy, dlatego dostosowuję metody terapeutyczne 
-  do indywidualnych potrzeb i możliwości każdego pacjenta.
-profile_image: '/images/magdalena-hossadyna-about.jpg'
-profile_image_alt: 'Magdalena Hossadyna w swoim gabinecie psychoterapeutycznym w Wieliczce'
+  - Ukończone 4-letnie, całościowe szkolenie z psychoterapii (Katedra
+    Psychoterapii UJ Collegium Medicum, atest PTP)
+  - "Magister psychologii, specjalność: psychologia kliniczna z neuropsychologią
+    (UAFM)"
+  - Szpital Kliniczny im. Babińskiego (Oddział Rehabilitacji Psychiatrycznej)
+  - Oddział Dzienny Leczenia Nerwic i Zaburzeń Behawioralnych (Szpital
+    Uniwersytecki UJ)
+  - Krakowski Instytut Psychoterapii.
+  - Zakład Psychoterapii SU UJ
+approach_title: Standardy pracy
+approach_description: >-
+  Jestem członkinią **Polskiego Towarzystwa Psychiatrycznego** i Sekcji Naukowej
+  Psychoterapii.
+
+
+  Swoją pracę poddaję **regularnej superwizji** u certyfikowanych superwizorów, co jest gwarancją profesjonalizmu i dbałości o jakość świadczonej pomocy.
+
+
+  Stale rozwijam swoje kompetencje poprzez udział w konferencjach i szkoleniach branżowych.
+profile_image: /images/magdalena-hossadyna-about.jpg
+profile_image_alt: Magdalena Hossadyna w swoim gabinecie psychoterapeutycznym w Wieliczce
 ---
