@@ -62,20 +62,7 @@ const contact = contactData?.data || {
             </div>
           </div>
           
-          <div class="info-item">
-            <div class="info-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
-                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
-                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="info-content">
-              <h4>Dostępność</h4>
-              <p set:html={contact?.availability ? contact.availability.replace(/\n/g, '<br>') : 'Skontaktuj się w celu ustalenia terminu'}></p>
-            </div>
-          </div>
+          
 
           
         </div>
@@ -122,7 +109,7 @@ const contact = contactData?.data || {
             <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
             <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
           </svg>
-          kontakt@magdalenahossadyna.pl
+          kontakt@hossadyna.pl
         </a>
       </div>
     </div>
@@ -221,7 +208,7 @@ const contact = contactData?.data || {
   .widget-container {
     background-color: var(--color-white);
     padding-top: 1.5rem;
-    padding-bottom: 1.1rem;
+    padding-bottom: 0rem;
     padding-right: 2.5rem;
     padding-left: 2.5rem;
     border-radius: 15px;
