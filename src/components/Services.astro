@@ -63,6 +63,34 @@
       </div>
     </div>
 
+    <div class="help-areas">
+      <h3>Obszary pomocy</h3>
+      <p class="help-areas-intro">
+        Specjalizuję się w pracy z różnymi trudnościami psychicznymi i emocjonalnymi. 
+        Oto obszary, w których mogę Ci profesjonalnie pomóc:
+      </p>
+      <div class="help-areas-grid">
+        <div class="help-area-item">niskie poczucie własnej wartości</div>
+        <div class="help-area-item">zaburzenia osobowości</div>
+        <div class="help-area-item">zaburzenia lękowe</div>
+        <div class="help-area-item">depresja</div>
+        <div class="help-area-item">nadużycia emocjonalne</div>
+        <div class="help-area-item">kryzys w związku</div>
+        <div class="help-area-item">zaburzenia nastroju</div>
+        <div class="help-area-item">kryzys emocjonalny</div>
+        <div class="help-area-item">bezsenność</div>
+        <div class="help-area-item">DDA - dorosłe dzieci alkoholików</div>
+        <div class="help-area-item">problemy rodzinne</div>
+        <div class="help-area-item">choroby psychosomatyczne</div>
+        <div class="help-area-item">DDD - dorosłe dziecko z rodziny dysfunkcyjnej</div>
+        <div class="help-area-item">kryzys życiowy</div>
+        <div class="help-area-item">lęki</div>
+        <div class="help-area-item">trauma</div>
+        <div class="help-area-item">zaburzenia emocjonalne</div>
+        <div class="help-area-item">zaburzenia psychiczne</div>
+      </div>
+    </div>
+
     <div class="therapy-process">
       <h3>Jak przebiega terapia w moim gabinecie?</h3>
       <div class="process-steps">
@@ -197,6 +225,58 @@
     font-weight: 500;
   }
 
+  .help-areas {
+    background-color: var(--color-white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
+  }
+
+  .help-areas h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-dusty-pink);
+    font-size: 2rem;
+  }
+
+  .help-areas-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-dark-graphite);
+    opacity: 0.9;
+  }
+
+  .help-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .help-area-item {
+    background-color: var(--color-off-white);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--color-dark-graphite);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--color-dusty-pink);
+    display: grid;
+    place-items: center; /* centrowanie w obu osiach */
+  }
+
+  .help-area-item:hover {
+    background-color: var(--color-dusty-pink);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .therapy-process {
     background-color: var(--color-white);
     padding: 3rem;
@@ -217,9 +297,11 @@
   }
 
   .step {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 1rem 1rem;
+    align-items: start;
   }
 
   .step-number {
@@ -234,19 +316,32 @@
     font-weight: bold;
     font-size: 1.2rem;
     flex-shrink: 0;
-    padding-top: 0.2rem;
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+  }
+
+  .step-content {
+    display: contents;
   }
 
   .step-content h4 {
-    margin-top: 0rem;
-    margin-bottom: 0.5rem;
+    margin: 0;
     color: var(--color-dark-graphite);
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+    line-height: 1.3;
   }
 
   .step-content p {
     font-size: 0.95rem;
     color: var(--color-dark-graphite);
     opacity: 0.8;
+    margin: 0;
+    grid-row: 2;
+    grid-column: 2;
+    margin-top: 0.5rem;
   }
 
   /* Mobile Styles */
@@ -259,26 +354,69 @@
       padding: 1.5rem;
     }
 
+    .help-areas {
+      padding: 2rem 1.5rem;
+    }
+
+    .help-areas h3 {
+      font-size: 1.6rem;
+    }
+
+    .help-areas-grid {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+
+    .help-area-item {
+      padding: 0.8rem 1.2rem;
+      font-size: 0.95rem;
+    }
+
     .therapy-process {
       padding: 2rem 1rem;
     }
 
     .process-steps {
       grid-template-columns: 1fr;
-      flex-direction: column;
-      text-align: center;
+      gap: 2.5rem;
     }
 
     .step {
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.8rem 1.2rem;
+      text-align: left;
+      align-items: start;
     }
+
     .step-number {
-      margin-bottom: -1.5rem;
+      grid-row: 1;
+      grid-column: 1;
+      align-self: start;
+      width: 50px;
+      height: 50px;
+      font-size: 1.4rem;
+      margin-top: 0.1rem;
     }
     
-  .step-content h4 {
-    margin-top: 1rem;
+    .step-content h4 {
+      grid-row: 1;
+      grid-column: 2;
+      margin: 0;
+      align-self: center;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .step-content p {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      margin: 0;
+      margin-top: 0.8rem;
+      padding-left: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     .specialization-tags {
