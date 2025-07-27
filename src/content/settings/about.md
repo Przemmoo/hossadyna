@@ -7,7 +7,7 @@ intro_paragraph_1: >-
   Ukończyłam 4-letnie, całościowe szkolenie z psychoterapii na Katedrze Psychoterapii UJ Collegium Medicum, atestowane przez Sekcję Naukową Polskiego Towarzystwa Psychiatrycznego. Ukończyłam również studia psychologiczne o specjalności psychologia kliniczna z neuropsychologią.
 
 
-  W pracy z pacjentami najważniejsze jest dla mnie indywidualne podejście oraz stworzenie atmosfery bezpieczeństwa i zaufania. Wierzę, że w oparciu o pełną szacunku, nieoceniającą relację możliwa jest głęboka i skuteczna praca nad zgłaszanymi trudnościami.
+  W pracy z pacjentami najważniejsze jest dla mnie indywidualne podejście oraz stworzenie atmosfery bezpieczeństwa i&nbsp;zaufania. Wierzę, że w oparciu o pełną szacunku, nieoceniającą relację możliwa jest głęboka i skuteczna praca nad zgłaszanymi trudnościami.
 intro_paragraph_2: Pracuję w **podejściu integracyjnym
   (bio-psycho-społecznym)**. Oznacza to, że w procesie terapeutycznym
   uwzględniam szeroką perspektywę, obejmującą czynniki biologiczne
