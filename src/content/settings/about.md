@@ -26,13 +26,13 @@ qualifications:
     Uniwersytecki UJ)
   - Krakowski Instytut Psychoterapii.
   - Zakład Psychoterapii SU UJ
-approach_title: Standardy pracy
+approach_title: Standardy i etyka pracy
 approach_description: >-
-  Jestem członkinią **Polskiego Towarzystwa Psychiatrycznego** i Sekcji Naukowej
+  Jestem członkinią Polskiego Towarzystwa Psychiatrycznego i Sekcji Naukowej
   Psychoterapii.
 
 
-  Swoją pracę poddaję **regularnej superwizji** u certyfikowanych superwizorów, co jest gwarancją profesjonalizmu i dbałości o jakość świadczonej pomocy.
+  Swoją pracę poddaję regularnej superwizji u certyfikowanych superwizorów, co jest gwarancją profesjonalizmu i dbałości o jakość świadczonej pomocy.
 
 
   Stale rozwijam swoje kompetencje poprzez udział w konferencjach i szkoleniach branżowych.
