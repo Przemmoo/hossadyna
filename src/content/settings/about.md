@@ -15,19 +15,19 @@ intro_paragraph_2: Pracuję w&#160;**podejściu integracyjnym
   społeczne (relacje, środowisko). Takie całościowe spojrzenie pozwala na
   głębsze zrozumienie problemu i&#160;dopasowanie interwencji do unikalnych
   potrzeb pacjenta, co prowadzi do trwałej i&#160;odczuwalnej zmiany.
-qualifications_title: Wykształcenie i&#160;doświadczenie kliniczne
+qualifications_title: Wykształcenie i doświadczenie kliniczne
 qualifications:
-  - Ukończone 4-letnie, całościowe szkolenie z&#160;psychoterapii (Katedra
+  - Ukończone 4-letnie, całościowe szkolenie z psychoterapii (Katedra
     Psychoterapii UJ Collegium Medicum, atest Polskiego Towarzystwa
     Psychiatrycznego)
-  - "Magister psychologii, specjalność: psychologia kliniczna
-    z&#160;neuropsychologią (UAFM)"
+  - "Magister psychologii, specjalność: psychologia kliniczna z neuropsychologią
+    (UAFM)"
   - Szpital Kliniczny im. Babińskiego (Oddział Rehabilitacji Psychiatrycznej)
-  - Oddział Dzienny Leczenia Nerwic i&#160;Zaburzeń Behawioralnych (Szpital
+  - Oddział Dzienny Leczenia Nerwic i Zaburzeń Behawioralnych (Szpital
     Uniwersytecki UJ)
   - Krakowski Instytut Psychoterapii.
   - Zakład Psychoterapii SU UJ
-approach_title: Standardy i&#160;etyka pracy
+approach_title: Standardy i etyka pracy
 approach_description: >-
   Jestem członkinią Polskiego Towarzystwa Psychiatrycznego i&#160;Sekcji
   Naukowej Psychoterapii.
