@@ -15,7 +15,7 @@ intro_paragraph_2: Pracuję w **podejściu integracyjnym
   społeczne (relacje, środowisko). Takie całościowe spojrzenie pozwala na
   głębsze zrozumienie problemu i dopasowanie interwencji do unikalnych potrzeb
   pacjenta, co prowadzi do trwałej i odczuwalnej zmiany.
-qualifications_title: Wykształcenie i kwalifikacje
+qualifications_title: Wykształcenie i doświadczenie kliniczne
 qualifications:
   - Ukończone 4-letnie, całościowe szkolenie z psychoterapii (Katedra
     Psychoterapii UJ Collegium Medicum, atest PTP)
