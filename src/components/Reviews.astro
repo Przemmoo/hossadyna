@@ -472,6 +472,10 @@ function generateStars(rating: number) {
       const currentSlideElement = reviewSlides[currentSlide] as HTMLElement;
       const nextSlideElement = reviewSlides[slideIndex] as HTMLElement;
       
+      // Oznacz elementy jako animowane
+      currentSlideElement.classList.add('animating');
+      nextSlideElement.classList.add('animating');
+      
       // Animacja wyjścia obecnego slajdu
       currentSlideElement.style.transform = direction === 'next' ? 'translateX(-100px)' : 'translateX(100px)';
       currentSlideElement.style.opacity = '0';
@@ -489,8 +493,9 @@ function generateStars(rating: number) {
       
       // Ukryj poprzedni slajd po animacji
       setTimeout(() => {
-        currentSlideElement.classList.remove('active');
+        currentSlideElement.classList.remove('active', 'animating');
         currentSlideElement.style.transform = 'translateX(100px)';
+        nextSlideElement.classList.remove('animating');
         isAnimating = false;
       }, 600);
       

@@ -84,21 +84,31 @@ const { title, description } = Astro.props;
       let processedCount = 0;
       
       elements.forEach(element => {
-        // Sprawdź czy element już został przetworzony
-        if ((element as HTMLElement).dataset.orphansFixed) return;
+        // Pomiń elementy które są w trakcie animacji (Reviews)
+        const reviewSlide = element.closest('.review-slide');
+        if (reviewSlide && reviewSlide.classList.contains('animating')) return;
         
         let text = element.innerHTML;
-        const originalText = text;
         
-        // Pojedyncze litery polskie (najważniejsze śerotki)
-        // Zamień "śerotka spacja słowo" na "śerotka&#160;słowo"
-        text = text.replace(/\b([aiouwzAIOUWZ])\s+(\S)/g, '$1&#160;$2');
+        // Sprawdź czy treść się rzeczywiście zmieniła od ostatniego przetwarzania
+        const lastProcessedText = (element as HTMLElement).dataset.lastProcessedText;
+        if (lastProcessedText === text) return;
+        
+        const originalText = text;
+
+        // Najpierw znormalizuj istniejące niełamliwe spacje do &#160;
+        text = text.replace(/&nbsp;/g, '&#160;');
+
+        // Pojedyncze litery polskie (najważniejsze sierotki)
+        // Zamień "sierotka spacja słowo" na "sierotka&#160;słowo"
+        // Dodatkowa ostrożność - unikaj już istniejących encji HTML
+        text = text.replace(/\b([aiouwzAIOUWZ])\s+(?!&#160;|&nbsp;)([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ][^\s<>]*)/g, '$1&#160;$2');
         
         // Krótkie słowa (2-3 litery) 
         // Zamień "krótkie_słowo spacja słowo" na "krótkie_słowo&#160;słowo"
-        const shortWords = ['na', 'do', 'od', 'po', 'za', 'we', 'ze', 'co', 'to', 'że', 'by', 'gdy', 'jak', 'czy', 'ale', 'lub', 'tym', 'tej', 'ten', 'tak', 'pod', 'nad', 'bez', 'dla', 'się'];
+        const shortWords = ['na', 'do', 'od', 'po', 'za', 'we', 'ze', 'co', 'to', 'są', 'mi', 'że', 'by', 'gdy', 'jak', 'czy', 'ale', 'lub', 'tym', 'tej', 'ten', 'tak', 'pod', 'nad', 'bez', 'dla', 'się'];
         shortWords.forEach(word => {
-          const regex = new RegExp(`\\b(${word})\\s+(\\S)`, 'gi');
+          const regex = new RegExp(`\\b(${word})\\s+(?!&#160;|&nbsp;)([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ][^\\s<>]*)`, 'gi');
           text = text.replace(regex, `$1&#160;$2`);
         });
         
@@ -108,14 +118,61 @@ const { title, description } = Astro.props;
           processedCount++;
         }
         
-        (element as HTMLElement).dataset.orphansFixed = 'true'; // Oznacz jako przetworzone
+        // Zapisz aktualny stan tekstu
+        (element as HTMLElement).dataset.lastProcessedText = text;
       });
       
     }
     
     // Uruchom po załadowaniu strony
     document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(fixOrphansGlobally, 500); // Większe opóźnienie dla pewności
+      // Pierwsza próba - natychmiast
+      setTimeout(fixOrphansGlobally, 100);
+      
+      // Druga próba - po animacjach
+      setTimeout(fixOrphansGlobally, 800);
+      
+      // Trzecia próba - dla powolnych renderowań
+      setTimeout(fixOrphansGlobally, 2000);
+    });
+
+    // Obserwuj zmiany w DOM (dla dynamicznie dodawanej treści)
+    const observer = new MutationObserver((mutations) => {
+      let shouldReprocess = false;
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              const element = node as HTMLElement;
+              // Sprawdź czy to nowy element tekstowy (nie zmiana istniejącego)
+              if ((element.matches('p, h1, h2, h3, h4, h5, h6, li, blockquote') || 
+                  element.querySelector('p, h1, h2, h3, h4, h5, h6, li, blockquote')) &&
+                  !element.dataset.lastProcessedText) {
+                shouldReprocess = true;
+              }
+            }
+          });
+        }
+      });
+      
+      if (shouldReprocess) {
+        // Wyłącz obserwację na czas przetwarzania aby uniknąć pętli
+        observer.disconnect();
+        setTimeout(() => {
+          fixOrphansGlobally();
+          // Ponownie włącz obserwację
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true
+          });
+        }, 100);
+      }
+    });
+
+    // Rozpocznij obserwację
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
     });
   </script>
 </html>
