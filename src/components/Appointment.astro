@@ -3,20 +3,17 @@
 import { getEntry } from 'astro:content';
 
 const contactData = await getEntry('settings', 'contact');
-const contact = contactData?.data || {
-  session_duration: '45 minut',
-  therapy_forms: '- Terapia indywidualna\n- Terapia online\n- Terapia w gabinecie',
-  office_address: 'ul. Krakowska 6a\n32-020 Wieliczka',
-  availability: 'Poniedziałek: 12:00 - 18:00\nWtorek: 8:00 - 13:00\nŚroda: 8:00 - 12:00\nCzwartek: 14:00 - 18:00\nPiątek: 14:00 - 17:00'
-};
+const contact = contactData?.data;
+
+const znanyLekarzData = await getEntry('settings', 'znanylekarz');
+const znanyLekarz = znanyLekarzData?.data;
 ---
 
 <section id="appointment" class="appointment section">
   <div class="container">
     <h2>Zarezerwuj termin wizyty</h2>
     <p class="appointment-intro">
-      Poniżej znajdziesz mój kalendarz w portalu Znany Lekarz. Wybierz dogodny dla siebie termin 
-      i formę spotkania (online lub w gabinecie). Możesz również skontaktować się ze mną bezpośrednio.
+      Poniżej znajdziesz mój kalendarz w portalu Znany Lekarz. Wybierz dogodny dla siebie termin. Możesz również skontaktować się ze mną bezpośrednio.
     </p>
     
     <div class="appointment-container">
@@ -33,7 +30,7 @@ const contact = contactData?.data || {
             </div>
             <div class="info-content">
               <h4>Czas trwania</h4>
-              <p>Sesja terapeutyczna trwa {contact.session_duration}</p>
+              <p>Sesja terapeutyczna trwa {contact?.session_duration}</p>
             </div>
           </div>
 
@@ -45,7 +42,7 @@ const contact = contactData?.data || {
             </div>
             <div class="info-content">
               <h4>Formy terapii</h4>
-              <p set:html={contact?.therapy_forms ? contact.therapy_forms.replace(/\n/g, '<br>') : 'Terapia indywidualna, online'}></p>
+              <p set:html={contact?.therapy_forms?.replace(/\n/g, '<br>')}></p>
             </div>
           </div>
           
@@ -58,13 +55,9 @@ const contact = contactData?.data || {
             </div>
             <div class="info-content">
               <h4>Lokalizacja</h4>
-              <p set:html={(contact?.office_address?.replace(/\n/g, '<br>') || 'Brak adresu') + '<br>lub online'}></p>
+              <p set:html={contact?.office_address?.replace(/\n/g, '<br>') + '<br>lub online'}></p>
             </div>
           </div>
-          
-          
-
-          
         </div>
 
         
@@ -74,21 +67,18 @@ const contact = contactData?.data || {
       <div class="widget-container">
         <h3>Zarezerwuj wizytę</h3>
         <div class="znany-lekarz-widget">
-          <!-- Widget Znanego Lekarza -->
-          <a 
-            id="zl-url" 
-            class="zl-url" 
-            href="https://www.znanylekarz.pl/magdalena-hossadyna/psycholog-psychoterapeuta/wieliczka" 
-            rel="nofollow" 
-            data-zlw-doctor="magdalena-hossadyna" 
-            data-zlw-type="big_with_calendar" 
-            data-zlw-opinion="false" 
-            data-zlw-hide-branding="true" 
-            data-zlw-saas-only="false" 
-            data-zlw-a11y-title="Widget umówienia wizyty lekarskiej"
-          >
-            Magdalena Hossadyna - ZnanyLekarz.pl
-          </a>
+          {znanyLekarz?.active && znanyLekarz?.widget_code ? (
+            <div set:html={znanyLekarz.widget_code}></div>
+          ) : (
+            <a 
+              href={znanyLekarz?.profile_url || "https://www.znanylekarz.pl/magdalena-hossadyna/psycholog-psychoterapeuta/wieliczka"} 
+              target="_blank"
+              rel="nofollow"
+              class="zl-url"
+            >
+              Magdalena Hossadyna - ZnanyLekarz.pl
+            </a>
+          )}
         </div>
       </div>
     </div>
@@ -98,18 +88,18 @@ const contact = contactData?.data || {
       <h4>Kontakt bezpośredni</h4>
       <p>Wolisz skontaktować się bezpośrednio?</p>
       <div class="contact-methods">
-        <a href={`tel:${contact?.phone ? contact.phone.replace(/\s/g, '') : ''}`} class="contact-method">
+        <a href={`tel:${contact?.phone?.replace(/\s/g, '') || ''}`} class="contact-method">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" fill="none"/>
           </svg>
-          {contact?.phone || '+48 123 456 789'}
+          {contact?.phone}
         </a>
-        <a href={`mailto:${contact.email}`} class="contact-method">
+        <a href={`mailto:${contact?.email || ''}`} class="contact-method">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
             <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
           </svg>
-          kontakt@hossadyna.pl
+          {contact?.email}
         </a>
       </div>
     </div>
@@ -366,11 +356,4 @@ const contact = contactData?.data || {
   }
 </style>
 
-<script>
-  // Load Znany Lekarz widget script
-  document.addEventListener('DOMContentLoaded', () => {
-    const script = document.createElement('script');
-    script.innerHTML = `!function($_x,_s,id){var js,fjs=$_x.getElementsByTagName(_s)[0];if(!$_x.getElementById(id)){js = $_x.createElement(_s);js.id = id;js.src = "//platform.docplanner.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","zl-widget-s");`;
-    document.head.appendChild(script);
-  });
-</script>
+

@@ -76,6 +76,48 @@ const { title, description } = Astro.props;
   <body>
     <slot />
   </body>
+  
+  <script>
+    // Globalna funkcja do usuwania śerótek
+    function fixOrphansGlobally() {
+      const elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, blockquote');
+      let processedCount = 0;
+      
+      elements.forEach(element => {
+        // Sprawdź czy element już został przetworzony
+        if ((element as HTMLElement).dataset.orphansFixed) return;
+        
+        let text = element.innerHTML;
+        const originalText = text;
+        
+        // Pojedyncze litery polskie (najważniejsze śerotki)
+        // Zamień "śerotka spacja słowo" na "śerotka&#160;słowo"
+        text = text.replace(/\b([aiouwzAIOUWZ])\s+(\S)/g, '$1&#160;$2');
+        
+        // Krótkie słowa (2-3 litery) 
+        // Zamień "krótkie_słowo spacja słowo" na "krótkie_słowo&#160;słowo"
+        const shortWords = ['na', 'do', 'od', 'po', 'za', 'we', 'ze', 'co', 'to', 'że', 'by', 'gdy', 'jak', 'czy', 'ale', 'lub', 'tym', 'tej', 'ten', 'tak', 'pod', 'nad', 'bez', 'dla', 'się'];
+        shortWords.forEach(word => {
+          const regex = new RegExp(`\\b(${word})\\s+(\\S)`, 'gi');
+          text = text.replace(regex, `$1&#160;$2`);
+        });
+        
+        // Jeśli tekst się zmienił, zaktualizuj element
+        if (text !== originalText) {
+          element.innerHTML = text;
+          processedCount++;
+        }
+        
+        (element as HTMLElement).dataset.orphansFixed = 'true'; // Oznacz jako przetworzone
+      });
+      
+    }
+    
+    // Uruchom po załadowaniu strony
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(fixOrphansGlobally, 500); // Większe opóźnienie dla pewności
+    });
+  </script>
 </html>
 
 <style is:global>
@@ -186,5 +228,30 @@ const { title, description } = Astro.props;
     .section {
       padding: 2rem 0;
     }
+  }
+
+  /* Polskie reguły typograficzne - automatyczne przenoszenie śerótek */
+  /* Dodaj niełamliwe spacje przed pojedyncze litery na końcu wyrazu */
+  p, span, div, li, h1, h2, h3, h4, h5, h6, blockquote {
+    /* Regex CSS nie jest dostępny, więc używamy JavaScript */
+    text-wrap: pretty; /* Nowoczesna właściwość dla lepszego łamania tekstu */
+  }
+
+  /* Zapobiega łamaniu linii po pojedynczych literach */
+  .no-orphans {
+    text-wrap: balance;
+    text-align: justify;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-last: always;
+    hyphenate-limit-zone: 8%;
+  }
+
+  /* Automatyczne stosowanie reguł do głównych elementów tekstowych */
+  p, li, blockquote {
+    text-wrap: pretty;
+    orphans: 2;      /* Zapobiega pojedynczym liniom na końcu strony */
+    widows: 3;       /* Zapobiega pojedynczym liniom na początku strony */
   }
 </style>

@@ -74,6 +74,11 @@ const settingsCollection = defineCollection({
     approach_description: z.string().optional(),
     profile_image: z.string().optional(),
     profile_image_alt: z.string().optional(),
+
+    // Schemat dla znanylekarz.md
+    widget_code: z.string().optional(),
+    profile_url: z.string().optional(),
+    active: z.boolean().optional(),
   }),
 });
 
