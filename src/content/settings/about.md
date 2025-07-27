@@ -18,7 +18,8 @@ intro_paragraph_2: Pracuję w **podejściu integracyjnym
 qualifications_title: Wykształcenie i doświadczenie kliniczne
 qualifications:
   - Ukończone 4-letnie, całościowe szkolenie z psychoterapii (Katedra
-    Psychoterapii UJ Collegium Medicum, atest PTP)
+    Psychoterapii UJ Collegium Medicum, atest Polskiego Towarzystwa
+    Psychiatrycznego)
   - "Magister psychologii, specjalność: psychologia kliniczna z neuropsychologią
     (UAFM)"
   - Szpital Kliniczny im. Babińskiego (Oddział Rehabilitacji Psychiatrycznej)
