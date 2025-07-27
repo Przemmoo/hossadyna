@@ -18,8 +18,8 @@ phone_hours: |-
 session_duration: 45 minut
 therapy_forms: |-
   - Terapia indywidualna
-  - Terapia online
   - Terapia w gabinecie
+  - Terapia online
 office_address: |-
   ul. Krakowska 6a
   32-020 Wieliczka
@@ -29,7 +29,7 @@ availability: |-
   Środa: 8:00 - 12:00
   Czwartek: 14:00 - 18:00
   Piątek: 14:00 - 17:00
-facebook: ''
-instagram: ''
-linkedin: ''
+facebook: ""
+instagram: ""
+linkedin: ""
 ---
