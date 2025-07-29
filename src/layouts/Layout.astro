@@ -41,15 +41,15 @@ const { title, description } = Astro.props;
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Physician",
+        "@type": "ProfessionalService",
         "name": "Magdalena Hossadyna",
         "image": "https://hossadyna.pl/images/magdalena-hossadyna.jpg",
         "url": "https://hossadyna.pl",
-        "telephone": "+48 123 456 789",
+        "telephone": "+48 607 234 234",
         "email": "kontakt@hossadyna.pl",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "ul. Przykładowa 1",
+          "streetAddress": "ul. Krakowska 6a",
           "addressLocality": "Wieliczka",
           "postalCode": "32-020",
           "addressCountry": "PL"
@@ -64,14 +64,14 @@ const { title, description } = Astro.props;
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Psychoterapia poznawczo-behawioralna"
+                "name": "Psychoterapia Wieliczka"
               }
             },
             {
               "@type": "Offer", 
               "itemOffered": {
                 "@type": "Service",
-                "name": "Terapia online"
+                "name": "Terapia Wieliczka"
               }
             }
           ]
@@ -224,7 +224,7 @@ const { title, description } = Astro.props;
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: 600;
     
     margin: 1.3rem 0 1.3rem 0;
     color: var(--color-sage-green);
