@@ -15,6 +15,9 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href={`https://hossadyna.pl${Astro.url.pathname}`} />
+    
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
@@ -25,6 +28,8 @@ const { title, description } = Astro.props;
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://hossadyna.pl${Astro.url.pathname}`} />
+    <meta property="og:image" content="https://hossadyna.pl/images/magdalena-hossadyna.jpg" />
     <meta property="og:locale" content="pl_PL" />
     
     <!-- Google Fonts -->
@@ -38,9 +43,10 @@ const { title, description } = Astro.props;
         "@context": "https://schema.org",
         "@type": "Physician",
         "name": "Magdalena Hossadyna",
-        "image": "/images/magdalena-hossadyna.jpg",
+        "image": "https://hossadyna.pl/images/magdalena-hossadyna.jpg",
+        "url": "https://hossadyna.pl",
         "telephone": "+48 123 456 789",
-        "email": "kontakt@magdalenahossadyna.pl",
+        "email": "kontakt@hossadyna.pl",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "ul. Przykładowa 1",

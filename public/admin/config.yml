@@ -2,15 +2,15 @@ backend:
   name: github
   repo: Przemmoo/hossadyna
   branch: main
-  base_url: https://hossadyna.pages.dev
+  base_url: https://hossadyna.pl
   auth_endpoint: /api/auth
 
 media_folder: 'public/images'
 public_folder: '/images'
 
 # Site configuration
-site_url: https://hossadyna.pages.dev
-display_url: https://hossadyna.pages.dev
+site_url: https://hossadyna.pl
+display_url: https://hossadyna.pl
 logo_url: '/images/logo.svg'
 
 collections:
