@@ -94,6 +94,13 @@ const { title, description } = Astro.props;
         const reviewSlide = element.closest('.review-slide');
         if (reviewSlide && reviewSlide.classList.contains('animating')) return;
         
+        // WAŻNE: Pomiń elementy nawigacji i nagłówka aby nie niszczyć linków
+        const isInNavigation = element.closest('nav, .nav, header, .header');
+        if (isInNavigation) return;
+        
+        // Pomiń elementy które zawierają linki HTML
+        if (element.querySelector('a')) return;
+        
         let text = element.innerHTML;
         
         // Sprawdź czy treść się rzeczywiście zmieniła od ostatniego przetwarzania
@@ -107,14 +114,14 @@ const { title, description } = Astro.props;
 
         // Pojedyncze litery polskie (najważniejsze sierotki)
         // Zamień "sierotka spacja słowo" na "sierotka&#160;słowo"
-        // Dodatkowa ostrożność - unikaj już istniejących encji HTML
-        text = text.replace(/\b([aiouwzAIOUWZ])\s+(?!&#160;|&nbsp;)([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ][^\s<>]*)/g, '$1&#160;$2');
+        // Dodatkowa ostrożność - unikaj już istniejących encji HTML i atrybutów
+        text = text.replace(/\b([aiouwzAIOUWZ])\s+(?!&#160;|&nbsp;|[a-zA-Z]*=)([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ][^\s<>=]*)/g, '$1&#160;$2');
         
         // Krótkie słowa (2-3 litery) 
         // Zamień "krótkie_słowo spacja słowo" na "krótkie_słowo&#160;słowo"
         const shortWords = ['na', 'do', 'od', 'po', 'za', 'we', 'ze', 'co', 'to', 'są', 'mi', 'że', 'by', 'gdy', 'jak', 'czy', 'ale', 'lub', 'tym', 'tej', 'ten', 'tak', 'pod', 'nad', 'bez', 'dla', 'się'];
         shortWords.forEach(word => {
-          const regex = new RegExp(`\\b(${word})\\s+(?!&#160;|&nbsp;)([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ][^\\s<>]*)`, 'gi');
+          const regex = new RegExp(`\\b(${word})\\s+(?!&#160;|&nbsp;|[a-zA-Z]*=)([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ][^\\s<>=]*)`, 'gi');
           text = text.replace(regex, `$1&#160;$2`);
         });
         
