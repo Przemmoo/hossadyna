@@ -202,13 +202,16 @@ const znanyLekarz = znanyLekarzData?.data;
   .widget-container {
     background-color: var(--color-white);
     padding-top: 1.5rem;
-    padding-bottom: 0rem;
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
+    padding-bottom: 1.5rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
     height: auto;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
   }
 
   .widget-container h3 {
@@ -219,6 +222,34 @@ const znanyLekarz = znanyLekarzData?.data;
 
   .znany-lekarz-widget {
     margin-top: 0rem;
+    min-height: 600px;
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* Style dla widgetu Znanego Lekarza */
+  .znany-lekarz-widget iframe {
+    width: 100% !important;
+    min-height: 600px !important;
+    border: none;
+    border-radius: 10px;
+  }
+
+  /* Zapewnienie, że widget DocPlanner się prawidłowo wyświetla */
+  .znany-lekarz-widget [data-zlw-type="big_with_calendar"] {
+    width: 100% !important;
+    min-height: 600px !important;
+  }
+
+  /* Dodatkowe style dla elementów wewnętrznych widgetu */
+  .znany-lekarz-widget .docplanner-widget {
+    width: 100% !important;
+    min-height: 600px !important;
+  }
+
+  .znany-lekarz-widget .docplanner-widget iframe {
+    width: 100% !important;
+    min-height: 600px !important;
   }
 
   .zl-url {
@@ -303,6 +334,18 @@ const znanyLekarz = znanyLekarzData?.data;
       padding: 2rem;
     }
 
+    .widget-container {
+      min-height: 600px;
+    }
+
+    .znany-lekarz-widget {
+      min-height: 550px;
+    }
+
+    .znany-lekarz-widget iframe {
+      min-height: 550px !important;
+    }
+
     .contact-methods {
       gap: 2rem;
     }
@@ -356,7 +399,15 @@ const znanyLekarz = znanyLekarzData?.data;
     }
 
     .znany-lekarz-widget {
-      min-height: 400px;
+      min-height: 500px;
+    }
+
+    .znany-lekarz-widget iframe {
+      min-height: 500px !important;
+    }
+
+    .widget-container {
+      min-height: 550px;
     }
   }
 </style>
