@@ -213,6 +213,7 @@ const { title, description } = Astro.props;
   html {
     scroll-padding-top: 120px; /* Account for fixed header height */
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Zapobiega poziomemu scrollowi */
   }
 
   body {
@@ -220,6 +221,7 @@ const { title, description } = Astro.props;
     color: var(--color-dark-graphite);
     background-color: var(--color-off-white);
     line-height: 1.6;
+    overflow-x: hidden; /* Zapobiega poziomemu scrollowi */
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -289,6 +291,11 @@ const { title, description } = Astro.props;
 
   /* Responsive Design */
   @media (max-width: 768px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
     h1 {
       font-size: 2rem;
     }
@@ -299,6 +306,13 @@ const { title, description } = Astro.props;
 
     .section {
       padding: 2rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 
