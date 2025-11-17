@@ -30,6 +30,8 @@ qualifications:
     Uniwersytecki UJ)
   - Krakowski Instytut Psychoterapii.
   - Zakład Psychoterapii SU UJ
+  - Krakowska Fundacja Rozwoju Psychoterapii -Terapia małżeństw i par ze
+    szczególnym uwzględnieniem podejścia systemowego
 approach_title: Standardy i etyka pracy
 approach_description: >-
   Jestem członkinią Polskiego Towarzystwa Psychiatrycznego i Sekcji Naukowej
