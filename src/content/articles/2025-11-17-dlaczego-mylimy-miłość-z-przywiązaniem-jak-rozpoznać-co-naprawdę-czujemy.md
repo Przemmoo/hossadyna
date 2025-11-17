@@ -10,7 +10,12 @@ description: W języku potocznym miłość i przywiązanie są często używane
   kluczowe dla uniknięcia pułapek uzależnienia emocjonalnego.
 image: /images/gemini_generated_image_uuq5zxuuq5zxuuq5.png
 category: relacje
-tags: []
+tags:
+  - miłość
+  - przywiązanie
+  - uzależnienie-emocjonalne
+  - dojrzała-miłość
+  - zależność
 ---
 Filozoficzne i psychologiczne fundamenty: Różnica w motywacji.
 
